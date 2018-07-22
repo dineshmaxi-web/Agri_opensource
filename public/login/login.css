@@ -1,0 +1,141 @@
+/* Global Area */
+	body{
+		padding: 0;
+		margin: 0;
+    background-image: url("https://agropolit.com/media/news/original/00/04/4336/selskoe-hozyaystvo-6987.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+	}
+	*{
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		font-family: 'Courier New', monospace;
+	}
+
+	.float-right{
+		width: 48%;
+		float: right;
+	}
+	.float-left{
+		width: 48%;
+		float: left;
+	}
+	.text-center{
+		text-align: center;
+	}
+	.activate{
+		background-color: #00CC99;
+	}
+	.none{
+		display: none;
+	}
+	.block{
+		display: block;
+	}
+	button{
+		background-color: #00e6ac;
+		border: none;
+		outline: none;
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+		letter-spacing: 2px;
+		-webkit-transition: 0.25s;
+		transition: 0.25s;
+		cursor: pointer;
+	}
+	button:hover{
+		background-color: #00cc99;
+	}
+/* Form area */
+	#form{
+		background-color: orange;
+		max-width: 500px;
+		max-height: auto;
+		margin: 50px auto;
+		padding: 30px;
+		border-radius: 0 50% 0 0;
+	}
+/* Tabs for SignUp and LogIn */
+	#form ul{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	#form .tabs{
+		width: 100%;
+	}
+	#form .tabs .tab{
+		width: 50%;
+		float: left;
+		background-color: #669999;
+	}
+
+	#form .tabs .tab a{
+		display: block;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		padding: 20px;
+		width: 100%;
+		transition: 0.5s;
+	}
+	#form .tabs .tab a:hover {
+		background-color: #00e6ac;
+	}
+/* LogIn form/ SignUp form */
+	input,
+	button[type="submit"]{
+		padding: 10px;
+		border: none;
+	}
+
+	label{
+		position: absolute;
+		z-index: 1;
+	}
+
+	.inactive{
+		color: gray;
+    font-size: 16px;
+		top: 20%;
+		left: 1%;
+		-webkit-transition: 0.25s;
+		transition: 0.25s;
+	}
+	.active{
+    font-size: 15px;
+		color: lightgreen;
+		top: -60%;
+	}
+	.req{
+		color: red;
+	}
+	form h1{
+		margin: 80px 0 40px 0;
+		color: white;
+		font-weight: normal;
+	}
+	form a{
+		margin: 10px 0;
+		color: #00e6ac;
+		text-decoration: none;
+		-webkit-transition: 0.25s;
+		transition: 0.25s;
+	}
+	form a:hover{
+		color: #00cc99;
+	}
+	input[type="text"]{
+		margin: 0;
+		width: 100%;
+	}
+	input[type="password"],
+	button[type="submit"]{
+		width: 100%;
+	}
+
+	.wrap-field{
+		position: relative;
+		margin: 30px auto;
+	}

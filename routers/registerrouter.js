@@ -1,0 +1,29 @@
+var express = require('express');
+var router = express.Router();
+var user = require('../models/user.js');
+var bcrypt = require('bcryptjs');
+
+router.post('/user/register' ,function(req,res){
+ var newUser = new user();
+ newUser.username = req.body.username;
+
+bcrypt.genSalt(10, function(err, salt) {
+ if (err) return next(err);
+ bcrypt.hash(req.body.password, salt, function(err, hash) {
+   if (err) return next(err);
+   newUser.password = hash;
+   newUser.save(function(err,savedObject){
+       if(savedObject)
+       {
+         console.log(savedObject.password);
+         res.redirect('/my/dashboard');
+       }
+       else {
+         console.log(err);
+       }
+     });
+  });
+});
+});
+
+module.exports = router;

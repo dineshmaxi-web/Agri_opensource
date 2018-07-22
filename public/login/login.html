@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>login/signup</title>
+  <link rel="stylesheet" href="/login/login.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <div id="form">
+    <!-- login and signup form  -->
+    <ul class="tabs">
+      <li id="tab1" class="tab"><a href="#login" class="activate">Log In</a></li>
+      <li id="tab2" class="tab"><a href="#signup">Register</a></li>
+    </ul>
+    <!-- .tabs (login and signup) -->
+    <div id="tab_content">
+      <div id="login" class="">
+        <form action="/user/login" method="post">
+          <h1 class="text-center">Login!</h1>
+          <div class="wrap-field">
+            <label for="uname">Username<span class="req">*</span></label>
+            <input type="text" name="username" id="f_name" required />
+          </div>
+          <div class="wrap-field">
+            <label for="pass">Password<span class="req">*</span></label>
+            <input type="password" name="password" id="password" required />
+          </div>
+          <button type="submit" name="login">LOG IN</button>
+        </form>
+      </div>
+      <!-- #login  -->
+      <div id="signup" class="">
+        <form action="/user/register" method="post">
+          <h1 class="text-center">Register!</h1>
+          <div class="wrap-field">
+            <label for="uname">Username<span class="req">*</span></label>
+            <input type="text" name="username" id="f_name" required />
+          </div>
+          <div class="wrap-field">
+            <label for="pass">Password<span class="req">*</span></label>
+            <input type="password" name="password" id="password" required />
+          </div>
+          <button type="submit" name="login">Register</button>
+        </form>
+      </div>
+      <!-- #signup  -->
+    </div>
+    <!-- #tab_content	 -->
+  </div>
+  <!-- #form  -->
+
+  <!-- Script  -->
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="/login/login.js"></script>
+  <!-- /Script  -->
+</body>
+
+</html>

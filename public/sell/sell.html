@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+     <link rel="stylesheet" href="/sell/sell.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+      <div class="inner-navbar">
+       <div class="container">
+         <div class="navbar-header">
+         <a href="#top" class="navbar-brand">Farm-Friend</a>
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" >
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+         </button>
+         </div>
+         <div id="navbarCollapse" class="collapse navbar-collapse">
+             <ul class="nav navbar-nav navbar-right justified">
+                 <li ><a href="/my/dashboard">Dashboard</a></li>
+                 <li><a  href="/my/sell">Sell</a></li>
+                 <li><a  href="/my/products">Products</a></li>
+                 <li><a href="/account/logout" class="btn-danger">Logout</a></li>
+             </ul>
+         </div>
+       </div>
+     </div>
+    </nav>
+<br><br><br><br><br><br>
+<div id="wrapper">
+  <div id="logo">
+				<center><img src="https://www.logoground.com/uploads/201644362016-08-123477179farmer-01.jpg" alt="Farm Branding" class="img-responsive img-logo"></center>
+	</div>
+
+  <h3 style="text-align: center">Brand your product</h3>
+  <br>
+  <form action="/sell/product" method="post">
+    <fieldset>
+      <legend>Product information</legend>
+      <div class="section-container">
+        <div>
+         <div class="form-group">
+            <label for="pName">Product name:</label>
+            <input id="pName" name="pname" type="text" class="form-control" placeholder="Carrot"/>
+          </div>
+          <div class="form-group">
+            <label for="pCostCode">Product price : <i class="fa fa-inr"></i></label>
+            <input id="pCostCode" name="pprice" type="number" class="form-control" placeholder="10000"/>
+          </div>
+          <div class="form-group">
+            <label for="pCostCode">Product Quantity:</label>
+            <select name="pqmeasure">
+              <option value="Tons">Tons</option>
+              <option value="Kg">Kg</option>
+              <option value="Quintal">quintal</option>
+            </select>
+            <input id="pCostCode" name="pquantity" type="number" class="form-control" placeholder="100"/>
+          </div>
+          <div class="form-group">
+            <label for="mecoPm">Phone number:</label>
+            <input id="mecoPm" name="pnumber" type="number" class="form-control" placeholder="9876543210"/>
+          </div>
+          <div class="form-group">
+              <label for="pAddressZip">Product description:</label>
+              <textarea rows="4" cols="12" class="form-control" placeholder="A popular sweet-tasting root vegetable, Carrots are narrow and cone shaped. They have thick, fleshy, deeply colored root, which grows underground, and feathery green leaves that emerge above the ground. While these greens are fresh tasting and slightly bitter, the carrot roots are crunchy textured with a sweet and minty aromatic taste. Fresho brings you the flavour and richness of the finest bright orange, crispy and juicy carrots. "></textarea>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="pAddress1">Street:</label>
+            <input id="pAddress1" name="street" type="text" class="form-control" placeholder="14, Nehru Street, Gandhipuram"/>
+          </div>
+          <div class="form-group">
+            <label for="pAddress2">City:</label>
+            <input id="pAddress2" name="city" type="text" class="form-control" placeholder="Coimbatore"/>
+          </div>
+          <div class="form-group">
+            <label for="pAddressState">State:</label>
+            <input id="pAddressState" name="state" type="text" class="form-control" placeholder="Tamilnadu"/>
+          </div>
+          <div class="form-group">
+            <label for="pAddressZip">Pincode:</label>
+            <input id="pAddressZip" name="pincode" type="number" class="form-control" placeholder="641029"/>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <br>
+    <div class="section-container">
+      <div>
+        <button class="btn btn-success btn-block btn-lg submit" type="submit" >Submit for sale</button>
+      </div>
+    </div>
+
+  </form>
+  <div id="footer"></div>
+</div>
+
+  </body>
+<script src="/sell/sell.js"></script>
+</html>
