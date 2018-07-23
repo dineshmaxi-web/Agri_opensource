@@ -13,6 +13,8 @@ var app = express();
 mongoose.connect('mongodb://ram:ram@ds117739.mlab.com:17739/login');
 app.use(express.static(__dirname + "/public"));
 
+app.set("view engine", "pug");
+
 app.use(session({secret:"secret",resave: true,saveUninitialized: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -49,6 +51,7 @@ app.get('/my/sell',verify,function(req,res){
 
 app.post('/sell/product',verify,function(req,res){
   var newProduct = new product();
+  newProduct.created_by = req.user.username;
   newProduct.pname = req.body.pname;
   newProduct.pprice = req.body.pprice;
   newProduct.pquantity = req.body.pquantity;
@@ -61,13 +64,20 @@ app.post('/sell/product',verify,function(req,res){
   newProduct.save(function(err,savedObject){
       if(savedObject)
       {
-        console.log(savedObject);
-        res.send(savedObject)
+        res.redirect('/my/products')
       }
       else {
-        console.log(err);
+        res.send(err);
       }
-    })
+    });
+});
+
+app.get('/my/products/detail/:id',function(req,res){
+  product.find({_id: req.params.id},function(err, product){
+    res.render('details', { prod : product })
+    if(err)
+      res.send("product not found or It may be deleted");
+});
 });
 
 app.get('/sell/product',verify,function(req,res){
@@ -77,10 +87,6 @@ app.get('/sell/product',verify,function(req,res){
         else
           res.send(product);
       });
-});
-
-app.get('/my/products/:id',verify,function(req,res){
-      res.send(req.params.id);
 });
 
 app.get('/account/logout',verify,function(req,res){

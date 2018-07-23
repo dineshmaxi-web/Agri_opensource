@@ -15,11 +15,10 @@ bcrypt.genSalt(10, function(err, salt) {
    newUser.save(function(err,savedObject){
        if(savedObject)
        {
-         console.log(savedObject.password);
          res.redirect('/my/dashboard');
        }
        else {
-         console.log(err);
+         res.send(err);
        }
      });
   });

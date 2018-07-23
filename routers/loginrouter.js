@@ -9,13 +9,11 @@ router.use(passport.session());
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
-  console.log(user);
 });
 
 passport.deserializeUser(function(id, done) {
   user.findById(id, function(err, user) {
     done(null, user);
-    console.log(user);
   });
 });
 
