@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var productSchema = mongoose.Schema({
   created_by : String,
-  created_at : {type: Date , default : Date.now()},
+  created_at : {type: Date , default:Date.now()},
   pname : String,
   pprice : Number,
   pquantity :  Number,

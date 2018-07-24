@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Home</title>
+    <title>Farm Friend - Sell</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -48,11 +48,11 @@
         <div>
          <div class="form-group">
             <label for="pName">Product name:</label>
-            <input id="pName" name="pname" type="text" class="form-control" placeholder="Carrot"/>
+            <input id="pName" name="pname" type="text" class="form-control" placeholder="Carrot" required/>
           </div>
           <div class="form-group">
             <label for="pCostCode">Product price : <i class="fa fa-inr"></i></label>
-            <input id="pCostCode" name="pprice" type="number" class="form-control" placeholder="10000"/>
+            <input id="pCostCode" name="pprice" type="number" class="form-control" placeholder="10000" required/>
           </div>
           <div class="form-group">
             <label for="pCostCode">Product Quantity:</label>
@@ -61,33 +61,33 @@
               <option value="Kg">Kg</option>
               <option value="Quintal">quintal</option>
             </select>
-            <input id="pCostCode" name="pquantity" type="number" class="form-control" placeholder="100"/>
+            <input id="pCostCode" name="pquantity" type="number" class="form-control" placeholder="100" required/>
           </div>
           <div class="form-group">
             <label for="mecoPm">Phone number:</label>
-            <input id="mecoPm" name="pnumber" type="number" class="form-control" placeholder="9876543210"/>
+            <input id="mecoPm" name="pnumber" type="number" class="form-control" placeholder="9876543210" required/>
           </div>
           <div class="form-group">
               <label for="pAddressZip">Product description:</label>
-              <textarea rows="4" cols="12" name="pdescription" class="form-control" placeholder="A popular sweet-tasting root vegetable, Carrots are narrow and cone shaped. They have thick, fleshy, deeply colored root, which grows underground, and feathery green leaves that emerge above the ground. While these greens are fresh tasting and slightly bitter, the carrot roots are crunchy textured with a sweet and minty aromatic taste. Fresho brings you the flavour and richness of the finest bright orange, crispy and juicy carrots. "></textarea>
+              <textarea rows="4" cols="12" name="pdescription" class="form-control" placeholder="A popular sweet-tasting root vegetable, Carrots are narrow and cone shaped. They have thick, fleshy, deeply colored root, which grows underground, and feathery green leaves that emerge above the ground. While these greens are fresh tasting and slightly bitter, the carrot roots are crunchy textured with a sweet and minty aromatic taste. Fresho brings you the flavour and richness of the finest bright orange, crispy and juicy carrots." required></textarea>
           </div>
         </div>
         <div>
           <div class="form-group">
             <label for="pAddress1">Street:</label>
-            <input id="pAddress1" name="street" type="text" class="form-control" placeholder="14, Nehru Street, Gandhipuram"/>
+            <input id="pAddress1" name="street" type="text" class="form-control" placeholder="14, Nehru Street, Gandhipuram" required/>
           </div>
           <div class="form-group">
             <label for="pAddress2">City:</label>
-            <input id="pAddress2" name="city" type="text" class="form-control" placeholder="Coimbatore"/>
+            <input id="pAddress2" name="city" type="text" class="form-control" placeholder="Coimbatore" required/>
           </div>
           <div class="form-group">
             <label for="pAddressState">State:</label>
-            <input id="pAddressState" name="state" type="text" class="form-control" placeholder="Tamilnadu"/>
+            <input id="pAddressState" name="state" type="text" class="form-control" placeholder="Tamilnadu" required/>
           </div>
           <div class="form-group">
             <label for="pAddressZip">Pincode:</label>
-            <input id="pAddressZip" name="pincode" type="number" class="form-control" placeholder="641029"/>
+            <input id="pAddressZip" name="pincode" type="number" class="form-control" placeholder="641029" required/>
           </div>
         </div>
       </div>

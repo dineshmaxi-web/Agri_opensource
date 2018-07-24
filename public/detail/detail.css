@@ -162,4 +162,6 @@ img {
     -webkit-transform: scale(1);
             transform: scale(1); } }
 
-/*# sourceMappingURL=style.css.map */
+.create{
+  text-align: right;
+}

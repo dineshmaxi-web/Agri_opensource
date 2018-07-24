@@ -8,7 +8,10 @@ var loginrouter = require("./routers/loginrouter");
 var mongoose = require('mongoose');
 var path = require('path');
 var product = require('./models/product.js');
+var user = require('./models/user.js');
+var nodemailer = require('nodemailer');
 var app = express();
+app.locals.moment = require('moment');
 
 mongoose.connect('mongodb://ram:ram@ds117739.mlab.com:17739/login');
 app.use(express.static(__dirname + "/public"));
@@ -56,6 +59,7 @@ app.post('/sell/product',verify,function(req,res){
   newProduct.pprice = req.body.pprice;
   newProduct.pquantity = req.body.pquantity;
   newProduct.pqmeasure = req.body.pqmeasure;
+  newProduct.pnumber = req.body.pnumber;
   newProduct.pdescription = req.body.pdescription;
   newProduct.street = req.body.street;
   newProduct.city = req.body.city;
@@ -72,15 +76,15 @@ app.post('/sell/product',verify,function(req,res){
     });
 });
 
-app.get('/my/products/detail/:id',function(req,res){
+app.get('/my/products/detail/:id',verify,function(req,res){
   product.find({_id: req.params.id},function(err, product){
-    res.render('details', { prod : product })
+    res.render('details', { prod : product , traderemail : req.user.email})
     if(err)
-      res.send("product not found or It may be deleted");
+      res.send("product not found.");
 });
 });
 
-app.get('/sell/product',verify,function(req,res){
+app.get('/get/product',verify,function(req,res){
       product.find({},function(err, product){
         if(err)
           res.send(err);
@@ -88,6 +92,32 @@ app.get('/sell/product',verify,function(req,res){
           res.send(product);
       });
 });
+
+app.post('/mail/send',function(req,res){
+  var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'dineshsmart101.dm@gmail.com',
+      pass: 'australian111'
+    }
+  });
+
+  var mailOption = {
+    from: 'dineshsmart101@gmail.com',
+    to: req.body.email,
+    subject: req.body.subject,
+    html: '<ul'+'<li>Mobile number : '+req.body.mobileno+'</li>'+'</ul>'
+  };
+ transporter.sendMail(mailOption,function(msg, err){
+   if(msg){
+    res.send(msg.response);
+   }
+   else {
+     console.log(err);
+   }
+ });
+});
+
 
 app.get('/account/logout',verify,function(req,res){
   req.session.destroy();

@@ -3,10 +3,10 @@ var router = express.Router();
 var user = require('../models/user.js');
 var bcrypt = require('bcryptjs');
 
-router.post('/user/register' ,function(req,res){
+router.post('/user/register', function(req,res){
  var newUser = new user();
  newUser.username = req.body.username;
-
+ newUser.email = req.body.email;
 bcrypt.genSalt(10, function(err, salt) {
  if (err) return next(err);
  bcrypt.hash(req.body.password, salt, function(err, hash) {
