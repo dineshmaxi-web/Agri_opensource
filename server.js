@@ -59,7 +59,7 @@ app.get('/my/sell',verify,function(req,res){
 app.post('/sell/product',verify,function(req,res){
   var newProduct = new product();
   newProduct.created_by = req.user.username;
-  newProduct.pname = req.body.pname;
+  newProduct.pname = req.body.pname.toLowerCase();
   newProduct.pprice = req.body.pprice;
   newProduct.pquantity = req.body.pquantity;
   newProduct.pqmeasure = req.body.pqmeasure;
@@ -108,15 +108,15 @@ app.post('/mail/send',function(req,res){
 
   var mailOption = {
     from: 'dineshsmart101@gmail.com',
-    to: req.body.email,
+    to: req.body.emailid,
     subject: req.body.subject,
     html: '<ul'+'<li>Mobile number : '+req.body.mobileno+'</li>'+'</ul>'
   };
- transporter.sendMail(mailOption,function(msg, err){
-   if(msg){
-    res.send(msg.response);
+ transporter.sendMail(mailOption,function(info, err){
+   if(info){
+    console.log(info.message);
    }
-   else {
+   if(err) {
      console.log(err);
    }
  });
@@ -124,6 +124,15 @@ app.post('/mail/send',function(req,res){
 
 app.get('/post/dashboard',verify,function(req,res){
   product.find({created_by: req.user.username},function(err, product){
+     res.send(product);
+    if(err)
+      res.send("product not found.");
+});
+});
+
+app.get('/get/product/search/:name',verify,function(req,res){
+  console.log(req.params.name);
+  product.find({pname: req.params.name.toLowerCase()},function(err, product){
      res.send(product);
     if(err)
       res.send("product not found.");

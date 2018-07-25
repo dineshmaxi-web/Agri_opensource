@@ -164,4 +164,12 @@ img {
 
 .create{
   text-align: right;
+  text-transform: UPPERCASE;
+}
+
+p1{
+  color : red;
+  font-style: "none";
+  text-transform: capitalize;
+  font-size : 15px;
 }

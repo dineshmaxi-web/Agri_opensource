@@ -4,7 +4,6 @@ $.ajax({
    contentType : "application/json",
    dataType : 'json',
    success : function(data,err){
-     console.log(data);
      for(var i = 0 ; i < data.length ; i++)
      {
        date = new Date(data[i].created_at);

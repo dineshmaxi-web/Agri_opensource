@@ -1,9 +1,9 @@
-	$('#signup').hide();
-$(document).ready(function(){
+$('#signup').hide();
 
+$(document).ready(function(){
 	/* Default Settings */
 	$('input').prev('label').addClass('inactive');
-	
+
 	$('.tab a').on('click', function(e){
 		e.preventDefault(); /* to stop default action */
 
