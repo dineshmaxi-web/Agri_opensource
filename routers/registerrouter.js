@@ -18,7 +18,7 @@ bcrypt.genSalt(10, function(err, salt) {
          res.redirect('/my/dashboard');
        }
        else {
-         res.send(err);
+         res.redirect('/my/register');
        }
      });
   });

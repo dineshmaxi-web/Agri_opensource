@@ -18,8 +18,8 @@ html
                   img(src="http://placekitten.com/400/252")
             .details.col-md-6
               h3.product-title #{prod[0].pname}
-              p.create Posted_by : #{prod[0].created_by}
-              p.create Posted_at : #{moment(prod[0].created_at).fromNow()}
+              strong.create Created_by : #{prod[0].created_by}
+              strong.create Created_at : #{moment(prod[0].created_at).fromNow()}
               h4.product-description #{prod[0].pdescription}
               h4.price Current price :
                   i.fa.fa-inr
@@ -30,10 +30,7 @@ html
               h4.price City :
                   i.fa.fa-building
                     span #{prod[0].city}
-              h4.price Number :
-                  i.fa.fa-building
-                    span #{prod[0].pnumber}
-              button.action.add-to-cart.btn.btn-default Send alert
+              button.action.add-to-cart.btn.btn-default Get the contact details
 
 script(type='text/javascript').
   mobilenum = !{JSON.stringify(prod[0].pnumber)}

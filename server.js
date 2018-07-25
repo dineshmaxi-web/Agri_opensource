@@ -31,16 +31,20 @@ function verify(req,res,next){
   }
   else {
     {
-      res.redirect('/');
+      res.redirect('/my/login');
     }
   }
 }
+
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/public/splashscreen/splashscreen.html'));
+});
 
 app.get('/my/dashboard',verify,function(req,res){
   res.sendFile(path.join(__dirname+'/public/dashboard/dashboard.html'));
 });
 
-app.get('/',function(req,res){
+app.get('/my/login',function(req,res){
   res.sendFile(path.join(__dirname+'/public/login/login.html'));
 });
 
@@ -118,6 +122,13 @@ app.post('/mail/send',function(req,res){
  });
 });
 
+app.get('/post/dashboard',verify,function(req,res){
+  product.find({created_by: req.user.username},function(err, product){
+     res.send(product);
+    if(err)
+      res.send("product not found.");
+});
+});
 
 app.get('/account/logout',verify,function(req,res){
   req.session.destroy();
