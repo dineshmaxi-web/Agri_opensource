@@ -7,7 +7,7 @@ $.ajax({
    url : '/get/product',
    contentType : "application/json",
    dataType : 'json',
-   success : function(data,err){
+   success : function(data){     
      for(var i = 0 ; i < data.length ; i++)
      {
       $("#post").append(
@@ -22,10 +22,8 @@ $.ajax({
         "<hr>"+
         "</div>"+
         "</div>"
-         );
-      if(err)
-      console.log(err);
-  }
+        );
+}
 }
 });
 

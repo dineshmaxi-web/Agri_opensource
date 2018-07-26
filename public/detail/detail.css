@@ -173,3 +173,8 @@ p1{
   text-transform: capitalize;
   font-size : 15px;
 }
+
+.material-icons{
+  float: right;
+  cursor: pointer;
+}

@@ -83,8 +83,6 @@ app.post('/sell/product',verify,function(req,res){
 app.get('/my/products/detail/:id',verify,function(req,res){
   product.find({_id: req.params.id},function(err, product){
     res.render('details', { prod : product , traderemail : req.user.email})
-    if(err)
-      res.send("product not found.");
 });
 });
 
@@ -137,6 +135,18 @@ app.get('/get/product/search/:name',verify,function(req,res){
     if(err)
       res.send("product not found.");
 });
+});
+
+app.post('/my/products/detail/:id/delete',verify,function(req,res){
+  if(req.user.username === req.body.uname)
+  {
+  product.findOneAndDelete({_id: req.body.pid},function(err, pro){
+    if(pro)
+      res.send(pro);
+    if(err)
+      res.send(err);
+  });
+  }
 });
 
 app.get('/account/logout',verify,function(req,res){

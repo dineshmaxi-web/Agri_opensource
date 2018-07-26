@@ -25,7 +25,7 @@ $.ajax({
             "</a>"+
             "<div class='media-body'>"+
               "<div class='well well-lg'>"+
-                  "<h4 class='media-heading text-uppercase reviews'>"+data[i].pname+"</h4>"+
+                  "<h4 class='media-heading text-uppercase reviews'><a href=/my/products/detail/"+data[i]._id+">"+data[i].pname+"</a></h4>"+
                   "<ul class='media-date text-uppercase reviews list-inline'>"+
                     "<li class='dd'>"+dt+"-" + month + "-"+year+"</li>"+
                   "</ul>"+
