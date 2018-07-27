@@ -7,8 +7,7 @@ html
     link(rel="stylesheet", href="/detail/detail.css")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:400,700")
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
     .container
       .card
@@ -28,7 +27,7 @@ html
               h4.product-description #{prod[0].pdescription}
               h4.price Current price :
                   i.fa.fa-inr
-                    span #{prod[0].price}
+                    span #{prod[0].pprice}
               h4.price Quantity :
                   i.fa.fa-at
                     span #{prod[0].pquantity} #{prod[0].pqmeasure}
@@ -53,7 +52,7 @@ html
         mobileno : mobilenum,
       }),
       contentType : "application/json",
-      success : function(err,data){
+      success : function(data){
           alert('message sent.');
        }
        })
@@ -68,7 +67,7 @@ html
            uname : c_by
         }),
         contentType : "application/json",
-        success : function(err,pro){
+        success : function(){
              window.location.href='/my/products';
          }
          })

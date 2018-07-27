@@ -28,6 +28,9 @@
   color:white;
   box-shadow: rgba(255,255,255,0.15) 0 0 5px;
 }
+ul.nav a{
+  color: #fff !important;
+}
 ul.nav a:hover {
   color: #fff !important;
 }

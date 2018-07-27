@@ -178,3 +178,8 @@ p1{
   float: right;
   cursor: pointer;
 }
+
+#map{
+  height:400px;
+  width:100%;
+}

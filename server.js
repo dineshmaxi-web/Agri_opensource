@@ -128,7 +128,7 @@ app.get('/post/dashboard',verify,function(req,res){
 });
 });
 
-app.get('/get/product/search/:name',verify,function(req,res){
+app.get('/get/product/search/name/:name',verify,function(req,res){
   console.log(req.params.name);
   product.find({pname: req.params.name.toLowerCase()},function(err, product){
      res.send(product);
@@ -137,15 +137,25 @@ app.get('/get/product/search/:name',verify,function(req,res){
 });
 });
 
+app.get('/get/product/search/location/:loc',verify,function(req,res){
+  console.log(req.params.loc);
+  product.find({city: req.params.loc},function(err, product){
+     res.send(product);
+    if(err)
+      res.send("product not found.");
+});
+});
+
+
 app.post('/my/products/detail/:id/delete',verify,function(req,res){
   if(req.user.username === req.body.uname)
   {
-  product.findOneAndDelete({_id: req.body.pid},function(err, pro){
-    if(pro)
-      res.send(pro);
-    if(err)
-      res.send(err);
+  product.findOneAndDelete({_id: req.body.pid},function(deleteditem){
+    res.send("hello");
   });
+  }
+  else {
+    res.send("helllo");
   }
 });
 
