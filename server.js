@@ -129,7 +129,6 @@ app.get('/post/dashboard',verify,function(req,res){
 });
 
 app.get('/get/product/search/name/:name',verify,function(req,res){
-  console.log(req.params.name);
   product.find({pname: req.params.name.toLowerCase()},function(err, product){
      res.send(product);
     if(err)
@@ -138,7 +137,6 @@ app.get('/get/product/search/name/:name',verify,function(req,res){
 });
 
 app.get('/get/product/search/location/:loc',verify,function(req,res){
-  console.log(req.params.loc);
   product.find({city: req.params.loc},function(err, product){
      res.send(product);
     if(err)
@@ -146,6 +144,23 @@ app.get('/get/product/search/location/:loc',verify,function(req,res){
 });
 });
 
+app.get('/get/product/search/price/:cond/:pri',verify,function(req,res){
+  if(req.params.cond != null)
+  {
+    if(req.params.cond == "Greaterthan")
+    {
+     product.find({pprice:{$gt:req.params.pri}},function(err, product){
+     res.send(product);
+    });
+    }
+    if(req.params.cond == "Lessthan")
+    {
+     product.find({pprice:{$lte:req.params.pri}},function(err, product){
+     res.send(product);
+    });
+    }
+   }
+});
 
 app.post('/my/products/detail/:id/delete',verify,function(req,res){
   if(req.user.username === req.body.uname)
