@@ -16,7 +16,7 @@ html
             .preview.col-md-6
               .preview-pic.tab-content
                 .tab-pane.active#pic-1
-                  img(src="http://placekitten.com/400/252")
+                  img(src=prod[0].pimage)
             .details.col-md-6
               h3.product-title #{prod[0].pname}
                 i.material-icons.delete delete
@@ -38,16 +38,21 @@ html
 
   script(type='text/javascript').
     mobilenum = !{JSON.stringify(prod[0].pnumber)}
+    pemail = !{JSON.stringify(prod[0].posteremail)}
     email = !{JSON.stringify(traderemail)}
+    creator = !{JSON.stringify(prod[0].created_by)}
+    pname = !{JSON.stringify(prod[0].pname)}
     id = !{JSON.stringify(prod[0]._id)}
-    c_by = !{JSON.stringify(prod[0].created_by)}
 
     $('.getcontact').click(function(){
      $.ajax({
       type : "post",
       url : '/mail/send',
       data : JSON.stringify({
-        emailid : email,
+        postername : creator,
+        product : pname,
+        posteremail : pemail,
+        clickeremail : email,
         subject : "Message from farm friend",
         mobileno : mobilenum,
       }),

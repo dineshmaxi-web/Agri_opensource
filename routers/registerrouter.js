@@ -7,6 +7,7 @@ router.post('/user/register', function(req,res){
  var newUser = new user();
  newUser.username = req.body.username;
  newUser.email = req.body.email;
+ newUser.phonenumber = req.body.phonenum;
 bcrypt.genSalt(10, function(err, salt) {
  if (err) return next(err);
  bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -15,6 +16,7 @@ bcrypt.genSalt(10, function(err, salt) {
    newUser.save(function(err,savedObject){
        if(savedObject)
        {
+         console.log(savedObject);
          res.redirect('/my/dashboard');
        }
        else {

@@ -1,3 +1,7 @@
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 $.ajax({
    type : "get",
    url : '/post/dashboard',
@@ -18,31 +22,20 @@ $.ajax({
           month = '0' + month;
         }
       $("#posts").append(
-        "<ul class='media-list'>"+
-          "<li class='media'>"+
-            "<a class='pull-left' href='#'>"+
-              "<img class='media-object img-circle' src='http://demandware.edgesuite.net/sits_pod32/dw/image/v2/BBBW_PRD/on/demandware.static/-/Sites-jss-master/default/dw58829350/images/products/vegetables/02735jp_01_hercules.jpg?sw=1120' alt='carrot' width=100% height=100vh>"+
-            "</a>"+
-            "<div class='media-body'>"+
-              "<div class='well well-lg'>"+
-                  "<h4 class='media-heading text-uppercase reviews'><a href=/my/products/detail/"+data[i]._id+">"+data[i].pname+"</a></h4>"+
-                  "<ul class='media-date text-uppercase reviews list-inline'>"+
-                    "<li class='dd'>"+dt+"-" + month + "-"+year+"</li>"+
-                  "</ul>"+
-                  "<p class='media-comment'> <strong>Price : </strong> <i class='fa fa-inr'></i>"+data[i].pprice+"</p>"+
-                  "<p class='media-comment'> <strong>Quantity : </strong>"+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-                  "<p class='media-comment'> <strong>City : </strong>"+data[i].city+"</p>"+
-              "</div>"+
-            "</div>"+
-          "</li>"+
-        "</ul>"
-        );
+        "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+        "<div class='card'>"+
+        "<img src='https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+        "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+        "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+        "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+        "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+        "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+        "<hr>"+
+        "</div>"+
+        "</div>"
+       );
       if(err)
       $("#post").html(err);
   }
 }
 });
-
-        $.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyBVq8yiBbtFJnOQzwOMM9ANPPifgNQP64A&crossOrigin=*", function(data, status){
-            alert(data);
-        });

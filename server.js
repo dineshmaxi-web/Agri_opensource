@@ -60,10 +60,12 @@ app.post('/sell/product',verify,function(req,res){
   var newProduct = new product();
   newProduct.created_by = req.user.username;
   newProduct.pname = req.body.pname.toLowerCase();
+  newProduct.pimage = req.body.imageurl;
+  newProduct.posteremail = req.user.email;
   newProduct.pprice = req.body.pprice;
   newProduct.pquantity = req.body.pquantity;
   newProduct.pqmeasure = req.body.pqmeasure;
-  newProduct.pnumber = req.body.pnumber;
+  newProduct.pnumber = req.user.phonenumber;
   newProduct.pdescription = req.body.pdescription;
   newProduct.street = req.body.street;
   newProduct.city = req.body.city;
@@ -96,7 +98,7 @@ app.get('/get/product',verify,function(req,res){
 });
 
 app.post('/mail/send',function(req,res){
-  var transporter = nodemailer.createTransport({
+  transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
       user: 'dineshsmart101.dm@gmail.com',
@@ -104,20 +106,37 @@ app.post('/mail/send',function(req,res){
     }
   });
 
-  var mailOption = {
-    from: 'dineshsmart101@gmail.com',
-    to: req.body.emailid,
+  mailOption = {
+    from: 'Website support <dineshsmart101@gmail.com>',
+    to: req.body.posteremail,
     subject: req.body.subject,
-    html: '<ul'+'<li>Mobile number : '+req.body.mobileno+'</li>'+'</ul>'
+    html: '<p>Hello, <b>'+ req.body.postername+'</b>. How are you?. <b>'+req.user.username+'</b> would like to buy your <b>'+req.body.product+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.user.username+' to '+req.user.phonenumber+'</li></ul>'
   };
  transporter.sendMail(mailOption,function(info, err){
    if(info){
     console.log(info.message);
    }
-   if(err) {
-     console.log(err);
+ });
+
+ transporter = nodemailer.createTransport({
+   service: 'Gmail',
+   auth: {
+     user: 'dineshsmart101.dm@gmail.com',
+     pass: 'australian111'
    }
  });
+
+ mailOption = {
+   from: 'Website support <dineshsmart101@gmail.com>',
+   to: req.body.clickeremail,
+   subject: req.body.subject,
+   html: '<p>Hello, <b>'+ req.user.username+'</b>. How are you?. I hope you are interested in buying the <b>'+req.body.product+'</b> from <b>'+req.body.postername+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.body.postername+' to '+req.body.mobileno+'</li></ul>'
+ };
+transporter.sendMail(mailOption,function(info, err){
+  if(info){
+   console.log(info.message);
+  }
+});
 });
 
 app.get('/post/dashboard',verify,function(req,res){
