@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
-  username : String,
+  username : {type: String, unique: true},
   password : String,
-  phonenumber : Number,  
-  email : String
+  phonenumber : {type: Number,unique: true},
+  email : {type: String,unique: true}
 });
 
 var user = mongoose.model('users' , userSchema);

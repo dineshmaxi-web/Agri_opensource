@@ -20,7 +20,7 @@ bcrypt.genSalt(10, function(err, salt) {
          res.redirect('/my/dashboard');
        }
        else {
-         res.redirect('/my/register');
+         res.send("Username and email and phonenumber must be unique.");
        }
      });
   });
