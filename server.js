@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var product = require('./models/product.js');
 var user = require('./models/user.js');
+var video = require('./models/video.js');
 var nodemailer = require('nodemailer');
 var app = express();
 app.locals.moment = require('moment');
@@ -40,8 +41,8 @@ app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/public/splashscreen/splashscreen.html'));
 });
 
-app.get('/my/dashboard',verify,function(req,res){
-  res.sendFile(path.join(__dirname+'/public/dashboard/dashboard.html'));
+app.get('/my/dashboard/posts',verify,function(req,res){
+  res.sendFile(path.join(__dirname+'/public/dashboardpost/dashboardpost.html'));
 });
 
 app.get('/my/login',function(req,res){
@@ -54,6 +55,14 @@ app.get('/my/products',verify,function(req,res){
 
 app.get('/my/sell',verify,function(req,res){
   res.sendFile(path.join(__dirname+'/public/sell/sell.html'));
+});
+
+app.get('/my/videos',verify,function(req,res){
+  res.sendFile(path.join(__dirname+'/public/video/video.html'));
+});
+
+app.get('/my/dashboard/videos',verify,function(req,res){
+  res.sendFile(path.join(__dirname+'/public/dashboardvideo/dashboardvideo.html'));
 });
 
 app.post('/sell/product',verify,function(req,res){
@@ -189,8 +198,46 @@ app.post('/my/products/detail/:id/delete',verify,function(req,res){
   });
   }
   else {
-    res.send("helllo");
+    res.send("hello");
   }
+});
+
+app.post('/post/videos',function(req,res){
+  var newVideo = new video();
+  newVideo.created_by = req.user.username;
+  newVideo.videonum = req.body.vid;
+  newVideo.save(function(err,savedObject){
+      if(savedObject)
+      {
+        res.send(savedObject);
+      }
+      else {
+        res.send(err);
+      }
+    });
+});
+
+app.get('/get/videos',verify,function(req,res){
+  video.find({},function(err, video){
+     console.log(video);
+     res.send(video);
+    if(err)
+      res.send("product not found.");
+});
+});
+
+app.get('/video/dashboard',verify,function(req,res){
+  video.find({created_by: req.user.username},function(err, video){
+     res.send(video);
+    if(err)
+      res.send("video not found.");
+});
+});
+
+app.post('/my/video/:id/delete',verify,function(req,res){
+  video.findOneAndDelete({_id: req.body.pid},function(deleteditem){
+    res.send("hello");
+});
 });
 
 app.get('/account/logout',verify,function(req,res){

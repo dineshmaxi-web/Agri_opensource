@@ -1,10 +1,11 @@
 <html lang="en">
 <head>
   <title>Farm Friend - Dashboard</title>
+  <link rel="icon" type="image/png" href="/img/farmer.png"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/dashboard/dashboard.css">
+  <link rel="stylesheet" href="/dashboardpost/dashboardpost.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
     <div class="inner-navbar">
      <div class="container">
        <div class="navbar-header">
-       <a href="#top" class="navbar-brand">Farm-Friend</a>
+       <a href="/my/dashboard/posts" class="navbar-brand">Farm-Friend</a>
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" >
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
@@ -26,6 +27,7 @@
                <li><a href="/my/dashboard">Dashboard</a></li>
                <li><a  href="/my/sell">Sell</a></li>
                <li><a  href="/my/products">Products</a></li>
+               <li><a  href="/my/videos">Videos</a></li>
                <li><a href="/account/logout" class="btn-danger">Logout</a></li>
            </ul>
        </div>
@@ -35,12 +37,12 @@
 <br><br><br><br><br><br>
 
 <div class="container">
- 
+<p><a href="/my/dashboard/videos">See your videos</a></p>
 <div class="row">
    <div id="posts"></div>
 </div>
 </div>
 
 </body>
-<script src="/dashboard/dashboard.js"></script>
+<script src="/dashboardpost/dashboardpost.js"></script>
 </html>

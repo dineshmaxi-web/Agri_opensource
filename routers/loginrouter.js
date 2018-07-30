@@ -19,7 +19,7 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/user/login',
 passport.authenticate('local', {failureRedirect: '/my/login'}), function(req, res) {
-  res.redirect(`/my/dashboard`);
+  res.redirect(`/my/dashboard/posts`);
 });
 
 passport.use(new LocalStrategy(
