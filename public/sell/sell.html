@@ -117,9 +117,14 @@
             <input id="pAddressZip" name="pincode" type="number" class="form-control" placeholder="641029" required/>
           </div>
           <div class="form-group">
+            <label for="pAddress1">Search your area for Lat and Lon:</label>
+            <input id="autocomplete" name="googlemap" type="text" class="form-control" required/>
+          </div>
+          <div class="form-group">
             <label for="url">Imageurl:</label>
             <input id="pAddressZip" name="imageurl" type="url" class="form-control" placeholder="Place the imageurl for your product" required/>
           </div>
+          <p></p>
         </div>
       </div>
     </fieldset>
@@ -134,6 +139,7 @@
   <div id="footer"></div>
 </div>
 
-  </body>
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzgEPx6cqn4xlfAivUYHuCxbefWWIlFs4&libraries=places&callback=initAutocomplete" async defer></script>
 <script src="/sell/sell.js"></script>
 </html>

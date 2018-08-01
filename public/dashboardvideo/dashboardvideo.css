@@ -72,3 +72,9 @@ ul.nav a:hover {
     position: relative;
     overflow: hidden;
 }
+
+.delete{
+  width : 25%;
+  height: 5vh;
+  border : 0px solid black;
+}

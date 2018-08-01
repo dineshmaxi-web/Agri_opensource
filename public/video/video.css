@@ -67,9 +67,17 @@ ul.nav a:hover {
 
 .vidval{
   width :  50%;
+  box-shadow: 1px 1px 1px 1px grey;
 }
 
 .resp-container {
     position: relative;
     overflow: hidden;
+}
+
+.addvideo{
+  border : 0px solid black;
+  width : 14%;
+  height : 5vh;
+  border-radius: 5px;
 }

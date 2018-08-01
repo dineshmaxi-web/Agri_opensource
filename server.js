@@ -80,9 +80,11 @@ app.post('/sell/product',verify,function(req,res){
   newProduct.city = req.body.city;
   newProduct.state = req.body.state;
   newProduct.pincode = req.body.pincode;
+  newProduct.latlon = req.body.googlemap;
   newProduct.save(function(err,savedObject){
       if(savedObject)
       {
+        console.log(savedObject);
         res.redirect('/my/products')
       }
       else {
@@ -191,14 +193,15 @@ app.get('/get/product/search/price/:cond/:pri',verify,function(req,res){
 });
 
 app.post('/my/products/detail/:id/delete',verify,function(req,res){
+  console.log(req.user.username,req.body.uname);
   if(req.user.username === req.body.uname)
   {
-  product.findOneAndDelete({_id: req.body.pid},function(deleteditem){
+  product.findOneAndDelete({_id: req.params.id},function(deleteditem){
     res.send("hello");
   });
   }
   else {
-    res.send("hello");
+    res.redirect('/my/products/detail/'+req.params.id+'/delete')
   }
 });
 
@@ -235,8 +238,8 @@ app.get('/video/dashboard',verify,function(req,res){
 });
 
 app.post('/my/video/:id/delete',verify,function(req,res){
-  video.findOneAndDelete({_id: req.body.pid},function(deleteditem){
-    res.send("hello");
+  video.findOneAndDelete({_id: req.params.id},function(deleteditem){
+    res.redirect('/my/dashboard/videos');
 });
 });
 

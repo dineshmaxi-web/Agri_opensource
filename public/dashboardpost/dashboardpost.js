@@ -24,7 +24,7 @@ $.ajax({
       $("#posts").append(
         "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
         "<div class='card'>"+
-        "<img src='https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+        "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
         "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
         "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
         "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+

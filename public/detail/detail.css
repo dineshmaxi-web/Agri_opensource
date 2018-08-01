@@ -170,7 +170,8 @@ img {
 }
 
 p1{
-  color : red;
+  letter-spacing: 3px;
+  color : orange;
   font-style: "none";
   text-transform: capitalize;
   font-size : 15px;
@@ -179,9 +180,13 @@ p1{
 .material-icons{
   float: right;
   cursor: pointer;
+  color : red;
 }
 
-#map{
-  height:400px;
-  width:100%;
+#view{
+  cursor: pointer;
+}
+
+#letspace{
+  letter-spacing: 3px;
 }

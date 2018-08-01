@@ -37,7 +37,7 @@ $.ajax({
    success : function(data,err){
      if(data.length == 0){
          $("#post").empty();
-         $("#post").html("<div class='well text-center'><b>"+searchval +"</b> is not found.<br>1.Please reload the page.<br>or<br>2.Search for right content.</div>")
+         $("#post").html("<div class='well text-center'><b>"+searchval +"</b> is not found.</div>")
       }
       else {
         $("#post").empty();
@@ -71,7 +71,7 @@ $.ajax({
    success : function(data,err){
      if(data.length == 0){
          $("#post").empty();
-         $("#post").html("<div class='well text-center'>There is no product available in <b>"+locval +"</b><br>Suggestions : 1. Search for another location. <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 2. Please reload the page.</div>")
+         $("#post").html("<div class='well text-center'>There is no product available in <b>"+locval +"</b>.</div>")
       }
       else {
         $("#post").empty();
@@ -105,7 +105,7 @@ $.ajax({
    success : function(data,err){
      if(data.length == 0){
          $("#post").empty();
-         $("#post").html("<div class='well text-center'>There is no product available within </i><b><i class='fa fa-inr'> "+priceval+"</b><br>Suggestions : 1. Search for different prices. <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 2. Please reload the page.</div>")
+         $("#post").html("<div class='well text-center'>There is no product "+cond+" <b><i class='fa fa-inr'></i> "+priceval+"</b>.</div>")
       }
       else {
         $("#post").empty();
@@ -140,7 +140,7 @@ $.ajax({
    success : function(data,err){
      if(data.length == 0){
          $("#post").empty();
-         $("#post").html("<div class='well text-center'>There is no product available within </i><b><i class='fa fa-inr'> "+priceval+"</b><br>Suggestions : 1. Search for different prices. <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 2. Please reload the page.</div>")
+         $("#post").html("<div class='well text-center'>There is no product "+condval+" <b><i class='fa fa-inr'></i>"+priceval+"</b>.</div>")
       }
       else {
         $("#post").empty();
