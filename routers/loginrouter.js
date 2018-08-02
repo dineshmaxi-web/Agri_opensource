@@ -19,13 +19,14 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/user/login',
 passport.authenticate('local', {failureRedirect: '/my/login'}), function(req, res) {
+  console.log(req.user.username);
   res.redirect(`/my/dashboard/posts`);
 });
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    user.findOne({username: username}, function(err, user) {
-      if (!user)
+    user.findOne({username: username , password: password}, function(err, user) {
+      if (!user || !password)
        {
          return done(null, false);
        }
