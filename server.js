@@ -95,7 +95,7 @@ app.post('/sell/product',verify,function(req,res){
 
 app.get('/my/products/detail/:id',verify,function(req,res){
   product.find({_id: req.params.id},function(err, product){
-    res.render('details', { prod : product , traderemail : req.user.email})
+    res.render('details', {prod : product , traderemail : req.user.email})
 });
 });
 
