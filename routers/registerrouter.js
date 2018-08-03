@@ -17,7 +17,7 @@ bcrypt.genSalt(10, function(err, salt) {
        if(savedObject)
        {
          console.log(savedObject);
-         res.redirect('/my/dashboard');
+         res.redirect('/my/login');
        }
        else {
          res.send("Username and email and phonenumber must be unique.");
