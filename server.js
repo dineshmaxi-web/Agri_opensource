@@ -10,7 +10,9 @@ var path = require('path');
 var product = require('./models/product.js');
 var user = require('./models/user.js');
 var video = require('./models/video.js');
+var chat = require('./models/chat.js');
 var nodemailer = require('nodemailer');
+var socket = require('socket.io');
 var app = express();
 app.locals.moment = require('moment');
 
@@ -95,7 +97,7 @@ app.post('/sell/product',verify,function(req,res){
 
 app.get('/my/products/detail/:id',verify,function(req,res){
   product.find({_id: req.params.id},function(err, product){
-    res.render('details', {prod : product , traderemail : req.user.email})
+    res.render('details', {prod : product , traderemail : req.user.email, username : req.user.username})
 });
 });
 
@@ -222,7 +224,6 @@ app.post('/post/videos',function(req,res){
 
 app.get('/get/videos',verify,function(req,res){
   video.find({},function(err, video){
-     console.log(video);
      res.send(video);
     if(err)
       res.send("product not found.");
@@ -246,9 +247,27 @@ app.post('/my/video/:id/delete',verify,function(req,res){
 app.get('/account/logout',verify,function(req,res){
   req.session.destroy();
   req.logout();
-  res.redirect('/');
+  res.redirect('/my/login');
 });
 
-app.listen(8080,function(){
-  console.log("server is listening on port 8080...");
+var server = app.listen(4000,function(){
+  console.log("server is listening on port 4000...");
+});
+
+var io = socket(server);
+io.on('connection', (socket) => {
+   socket.on('chat', function(data){
+       var newChat = new chat();
+       newChat.created_by = data.user;
+       newChat.message = data.message;
+       newChat.save();
+       io.sockets.emit('chat', data);
+   });
+});
+
+app.get('/get/chat',verify, function(req,res){
+  chat.find({},function(err, obj){
+    console.log(obj);
+    res.send(obj);
+  });
 });

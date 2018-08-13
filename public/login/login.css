@@ -2,7 +2,7 @@
 	body{
 		padding: 0;
 		margin: 0;
-    background-image: url("https://agropolit.com/media/news/original/00/04/4336/selskoe-hozyaystvo-6987.jpg");
+    background-image: url("https://images2.alphacoders.com/671/thumb-1920-671428.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 	}
@@ -25,6 +25,8 @@
 	}
 	.activate{
 		background-color: #00CC99;
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 	.none{
 		display: none;
@@ -49,7 +51,7 @@
 	}
 /* Form area */
 	#form{
-		background-color: orange;
+		background-color: brown;
 		max-width: 500px;
 		max-height: auto;
 		margin: 50px auto;
@@ -139,3 +141,14 @@
 		position: relative;
 		margin: 30px auto;
 	}
+
+.unamestyle{
+	font-family: sans;
+	letter-spacing: 3px;
+	font-weight: normal;
+}
+
+.login{
+	font-size: 14px;
+	letter-spacing: 2px;
+}

@@ -1,5 +1,8 @@
 
 /*****************globals*************/
+
+@import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
+
 body {
   font-family: 'serif';
   overflow-x: hidden; }
@@ -187,6 +190,78 @@ p1{
   cursor: pointer;
 }
 
+#vcomment{
+  cursor: pointer;
+  float: right;
+}
+
 #letspace{
   letter-spacing: 3px;
+}
+
+#mario-chat{
+    max-width: 1000px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#chat-window{
+    height: 300px;
+    background: #f9f9f9;
+    overflow: auto;
+}
+
+#output p{
+    text-align : left;
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+}
+
+#output b{
+  color: #242325;
+  font-weight: lighter;
+  font-size: 17px;
+  font-family: Cherry Swash;
+  letter-spacing: 1px;
+}
+
+#output i{
+    color: 	#534B52;
+    font-size: 17px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+#message{
+    height: 6%;
+    border: 0;
+    display: block;
+    width: 100%;
+    font-family: Nunito;
+    font-size: 18px;
+    width:85%;
+    border: 1px solid;
+}
+
+#send{
+    float:right;
+    color:blue;
+    background-color: white;
+    width: 15%;
+    height: 6%
+}
+
+.well-lg{
+  letter-spacing: 2px;
+  color: blue;
+  font-size: 20px;
+  font-family: fantasy;
+}
+
+span{
+  float: right;
 }

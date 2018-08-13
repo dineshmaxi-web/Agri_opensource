@@ -8,6 +8,10 @@ html
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:400,700")
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js")
+
   body
     .container
       .card
@@ -40,20 +44,30 @@ html
                     span #{prod[0].city}
               button.action.add-to-cart.btn.btn-default.getcontact Get the contact details
           br
-          a#view View on google map (expand/minimize)
+          a#view View on google map
+            a#vcomment Comment
               br
               br
               br
           center
             iframe#gm(width="100%" height="50%",frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBzgEPx6cqn4xlfAivUYHuCxbefWWIlFs4&q='+prod[0].latlon)
+          #mario-chat
+            .well-lg Comment Section
+            #chat-window
+                #output
+            button#send
+              i.fa.fa-paper-plane
+            input(type="text", placeholder="Message", id="message")
 
   script(type='text/javascript').
     mobilenum = !{JSON.stringify(prod[0].pnumber)}
     pemail = !{JSON.stringify(prod[0].posteremail)}
     email = !{JSON.stringify(traderemail)}
+    user = !{JSON.stringify(username)}
     creator = !{JSON.stringify(prod[0].created_by)}
     pname = !{JSON.stringify(prod[0].pname)}
     id = !{JSON.stringify(prod[0]._id)}
+
 
     $('.getcontact').click(function(){
      $.ajax({
@@ -87,8 +101,59 @@ html
          }
          })
         })
+
         $('#gm').hide();
+        $('#mario-chat').hide();
 
         $('#view').click(function() {
          $('#gm').toggle("slow");
         });
+
+        $('#vcomment').click(function() {
+         $('#mario-chat').toggle("slow");
+        });
+
+
+        $.ajax({
+           type : "get",
+           url : '/get/chat',
+           dataType : "json",
+           contentType : "application/json",
+           success : function(data){
+             for(var i = 0 ; i < data.length ; i++)
+             {
+                $("#output").append("<p><b>"+data[i].created_by+":</b>  <i>"+data[i].message+"</i><span>"+ctime(data[i].created_at)+"</span></p>");
+             }
+        }
+        })
+
+        function ctime(time){
+          var date = moment.utc(time).format('YYYY-MM-DD HH:mm:ss');
+          var stillUtc = moment.utc(date).toDate();
+          var local = moment(stillUtc).local().format('HH:mm:ss DD/MM/YYYY');
+          return local;
+        }
+
+        var socket = io.connect('http://localhost:4000');
+
+        var message = document.getElementById('message'),
+        btn = document.getElementById('send'),
+        output = document.getElementById('output');
+
+      btn.addEventListener('click', function(){
+      if($("#message").val() == "")
+      {
+
+      }
+      else{
+        socket.emit('chat', {
+            message: message.value,
+            user: user
+        });
+        message.value = "";
+      }
+      });
+
+      socket.on('chat', function(data){
+          $("#output").append("<p><b>"+data.user+":</b>  <i>"+data.message+"</i> <span>"+ctime(data.created_at)+"</span></p>");
+      });

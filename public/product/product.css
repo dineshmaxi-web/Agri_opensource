@@ -1,3 +1,13 @@
+#toggleadvance{
+  color: blue;
+  cursor: pointer;
+}
+
+#hideadvancesearch{
+  color: blue;
+  cursor: pointer;
+}
+
 .wrap {
   display: flex;
   align-items: center;
@@ -8,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 60%;
   font: 14px 'Open Sans', sans-serif;
 }
 

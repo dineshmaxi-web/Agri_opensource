@@ -11,12 +11,11 @@
 </head>
 
 <body>
-
   <div id="form">
     <!-- login and signup form  -->
     <ul class="tabs">
-      <li id="tab1" class="tab"><a href="#login" class="activate">Log In</a></li>
-      <li id="tab2" class="tab"><a href="#signup">Register</a></li>
+      <li id="tab1" class="tab"><a href="#login" class="activate" class="login">Log In</a></li>
+      <li id="tab2" class="tab"><a href="#signup" class="login">Register</a></li>
     </ul>
     <!-- .tabs (login and signup) -->
     <div id="tab_content">
@@ -24,11 +23,11 @@
         <form action="/user/login" method="post">
           <h1 class="text-center">Login!</h1>
           <div class="wrap-field">
-            <label for="uname">Username<span class="req">*</span></label>
+            <label for="uname" class="unamestyle">Username<span class="req">*</span></label>
             <input type="text" name="username" id="f_name" required />
           </div>
           <div class="wrap-field">
-            <label for="pass">Password<span class="req">*</span></label>
+            <label for="pass" class="unamestyle">Password<span class="req">*</span></label>
             <input type="password" name="password" id="password" required />
           </div>
           <button type="submit" name="login">LOG IN</button>
@@ -40,19 +39,19 @@
           <h1 class="text-center">Register!</h1>
           <p id="errmsg"></p>
           <div class="wrap-field">
-            <label for="uname">Username<span class="req">*</span></label>
+            <label for="uname" class="unamestyle">Username<span class="req">*</span></label>
             <input type="text" name="username" id="f_name" required />
           </div>
           <div class="wrap-field">
-            <label for="uname">Email<span class="req">*</span></label>
+            <label for="uname" class="unamestyle">Email<span class="req">*</span></label>
             <input type="email" name="email" id="email" required/>
           </div>
           <div class="wrap-field">
-            <label for="pnum">Phone number<span class="req">*</span></label>
+            <label for="pnum" class="unamestyle">Phone number<span class="req">*</span></label>
             <input type="number" name="phonenum" id="f_name" required />
           </div>
           <div class="wrap-field">
-            <label for="pass">Password<span class="req">*</span></label>
+            <label for="pass" class="unamestyle">Password<span class="req">*</span></label>
             <input type="password" name="password" id="password" required />
           </div>
           <button type="submit" name="login">Register</button>

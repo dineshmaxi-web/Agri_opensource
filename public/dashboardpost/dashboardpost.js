@@ -8,19 +8,14 @@ $.ajax({
    contentType : "application/json",
    dataType : 'json',
    success : function(data,err){
+     if(data.length==0)
+     {
+       $("#posts").html("<div class='well'>You didn't post any products</div>");
+     }
+     else
+     {
      for(var i = 0 ; i < data.length ; i++)
      {
-       date = new Date(data[i].created_at);
-       year = date.getFullYear();
-       month = date.getMonth()+1;
-       dt = date.getDate();
-
-        if (dt < 10) {
-          dt = '0' + dt;
-        }
-        if (month < 10) {
-          month = '0' + month;
-        }
       $("#posts").append(
         "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
         "<div class='card'>"+
@@ -29,7 +24,6 @@ $.ajax({
         "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
         "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
         "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-        "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
         "<hr>"+
         "</div>"+
         "</div>"
@@ -37,5 +31,6 @@ $.ajax({
       if(err)
       $("#post").html(err);
   }
+}
 }
 });
