@@ -260,6 +260,7 @@ io.on('connection', (socket) => {
        var newChat = new chat();
        newChat.created_by = data.user;
        newChat.message = data.message;
+       newChat.prodid = data.productid;
        newChat.save();
        io.sockets.emit('chat', data);
    });

@@ -45,7 +45,6 @@ html
               button.action.add-to-cart.btn.btn-default.getcontact Get the contact details
           br
           a#view View on google map
-            a#vcomment Comment
               br
               br
               br
@@ -103,14 +102,9 @@ html
         })
 
         $('#gm').hide();
-        $('#mario-chat').hide();
 
         $('#view').click(function() {
          $('#gm').toggle("slow");
-        });
-
-        $('#vcomment').click(function() {
-         $('#mario-chat').toggle("slow");
         });
 
 
@@ -122,7 +116,8 @@ html
            success : function(data){
              for(var i = 0 ; i < data.length ; i++)
              {
-                $("#output").append("<p><b>"+data[i].created_by+":</b>  <i>"+data[i].message+"</i><span>"+ctime(data[i].created_at)+"</span></p>");
+             if(data[i].prodid == id)
+              $("#output").append("<p><b>"+data[i].created_by+":</b>  <i>"+data[i].message+"</i><span>"+ctime(data[i].created_at)+"</span></p>");
              }
         }
         })
@@ -148,12 +143,14 @@ html
       else{
         socket.emit('chat', {
             message: message.value,
-            user: user
+            user: user,
+            productid: id
         });
         message.value = "";
       }
       });
 
       socket.on('chat', function(data){
+       if(data.productid == id)
           $("#output").append("<p><b>"+data.user+":</b>  <i>"+data.message+"</i> <span>"+ctime(data.created_at)+"</span></p>");
       });
