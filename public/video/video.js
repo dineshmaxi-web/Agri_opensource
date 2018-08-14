@@ -1,29 +1,21 @@
-$('.addvideo').click(function(){
-  v = $('.vidval').val();
- $.ajax({
-
-  type : "post",
-  url : '/post/videos/',
-  data : JSON.stringify({
-     vid : v
-  }),
-  contentType : "application/json",
-  success : function(data){
-     $('.vidval').val() = "";
-     alert("Video publicly posted");
-  }
- });
- });
+$(document).ready(function(){
+  var table =  $('#myTable');
 
   $.ajax({
-   type : "get",
-   url : '/get/videos',
-   dataType : "json",
-   contentType : "application/json",
-   success : function(data){
-     for(var i = 0 ; i < data.length ; i++)
-     {
-        $('.video').append("<div class='col-lg-4 col-md-6 col-xs-12'><iframe class='resp-iframe' width='360' height='315' src="+data[i].videonum+" frameborder='0' encrypted-media' allowfullscreen></iframe></div>");
-      }
-    }
-  });
+     type : "get",
+     url : 'https://data.gov.in/node/86943/datastore/export/json',
+     Accept : 'application/json',
+     success : function(data){
+       for (var i =0 ; i < data.length; i++) {
+
+         var $nr = $('<tr><td>' + data[i].state  + '</td> <td>' + data[i].district  + '</td> <td>' + data[i].market  + '</td> <td>' + data[i].commodity  + '</td> <td>' + data[i].variety  + '</td> <td>' + data[i].arrival_date  + '</td> <td>'
+          + data[i].min_price  + '</td> <td>' + data[i].max_price  + '</td> <td>' + data[i].modal_price  + '</td></tr>');
+         table.append($nr);
+       }
+
+       // after table is populated, initiate plug-in
+       $('#myTable').DataTable(
+            { "lengthMenu": [[10,20,-1], [50,100]] });
+}
+});
+});

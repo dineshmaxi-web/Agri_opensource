@@ -63,10 +63,6 @@ app.get('/my/videos',verify,function(req,res){
   res.sendFile(path.join(__dirname+'/public/video/video.html'));
 });
 
-app.get('/my/dashboard/videos',verify,function(req,res){
-  res.sendFile(path.join(__dirname+'/public/dashboardvideo/dashboardvideo.html'));
-});
-
 app.post('/sell/product',verify,function(req,res){
   var newProduct = new product();
   newProduct.created_by = req.user.username;

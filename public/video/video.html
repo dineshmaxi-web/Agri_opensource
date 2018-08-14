@@ -8,6 +8,8 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="/video/video.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>
      <meta charset="utf-8">
   </head>
   <body>
@@ -36,18 +38,26 @@
      </div>
     </nav>
 <br><br><br><br><br><br>
-     <div class="container">
-        <center>
-          <form>
-              <a href="https://drive.google.com/file/d/1hwsEzc8avloT4jqnGfzrSJrLKWiZucNF/view?usp=sharing" target="_blank">How to upload video</a>
-              <input type="url" name="video" class="vidval" placeholder="Paste your embeded URL" required>
-              <button class="btn-primary addvideo">Upload your video <i class="fa fa-upload"></i></button>
-          </form>
-        <br><br>
-        <div class="row resp-container">
-          <div class="video">
-
-          </div>
+     <div class="container contain">
+       <div style="width:100%">
+         <table class="paginated" id="myTable">
+             <thead>
+                 <tr>
+                     <th class="col">City</th>
+                     <th class="col">District</th>
+                     <th class="col">Market</th>
+                     <th class="col">Commodity</th>
+                     <th class="col">Variety</th>
+                     <th class="col">Arrival_date</th>
+                     <th class="col">Min_price</th>
+                     <th class="col">Max_price</th>
+                     <th class="col">Modal_price</th>
+                </tr>
+           </thead>
+           <tbody>
+          </tbody>
+         </table>
+         </div>
         </div>
         </center>
       </div>
