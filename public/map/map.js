@@ -1,3 +1,4 @@
+function initMap(){
 var locations = [];
 $.ajax({
    type : "get",
@@ -22,7 +23,7 @@ $.ajax({
      for (i = 0; i < locations.length; i++){
        var icon = {
             url: locations[i][6] , // url
-            scaledSize: new google.maps.Size(20, 20), // scaled size               
+            scaledSize: new google.maps.Size(20, 20), // scaled size
         };
        marker = new google.maps.Marker({
          position: new google.maps.LatLng(locations[i][0],locations[i][1]),
@@ -39,7 +40,7 @@ $.ajax({
 }
 }
 });
-
+}
 $(".dropdown-toggle").click(function(){
   $(".dropdown-toggle").css("background", "#722872");
   $(".dropdown-menu").css("background", "#722872");
