@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Farm-Friend - myvideos</title>
+    <title>Farm-Friend - Mandi</title>
     <link rel="icon" type="image/png" href="/img/farmer.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="/video/video.css">
+     <link rel="stylesheet" href="/mandi/mandi.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>
@@ -30,8 +30,14 @@
                  <li ><a href="/my/dashboard/posts">Dashboard</a></li>
                  <li><a  href="/my/sell">Sell</a></li>
                  <li><a  href="/my/products">Products</a></li>
-                 <li><a  href="/my/videos">Videos</a></li>
-                 <li><a href="/account/logout" class="btn-danger">Logout</a></li>
+                 <li><a  href="/my/map">Map View</a></li>
+                 <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usefull links <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <li><a href="/my/mandi">Mandi prices and Details</a></li>
+                  </ul>
+                 </li>
+                 <li><a href="/account/logout" id="btn-danger">Logout</a></li>
              </ul>
          </div>
        </div>
@@ -64,4 +70,4 @@
   </body>
 </html>
 
-<script src="/video/video.js"></script>
+<script src="/mandi/mandi.js"></script>

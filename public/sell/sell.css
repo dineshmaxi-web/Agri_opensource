@@ -2,6 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
 
+
 .navbar-default .navbar-brand{
   font-family: impact;
   font-size: 32px;
@@ -46,6 +47,7 @@ ul.nav a:hover {
 .navbar-default .navbar-nav> li > a{
   padding: 10px 15px;
   border-radius: 5px;
+  background-color: #722872;
  }
 
 .navbar-nav>li{
@@ -64,6 +66,16 @@ ul.nav a:hover {
 }
 
 .navbar {  border: none!important; }
+
+.dropdown-menu>li>a:hover{
+  background-color: #722872;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+
+#btn-danger{
+  background-color: red;
+}
+
 
 html, body {
   box-sizing: border-box;

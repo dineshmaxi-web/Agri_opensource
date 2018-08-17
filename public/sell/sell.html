@@ -28,8 +28,14 @@
                  <li ><a href="/my/dashboard/posts">Dashboard</a></li>
                  <li><a  href="/my/sell">Sell</a></li>
                  <li><a  href="/my/products">Products</a></li>
-                 <li><a  href="/my/videos">Videos</a></li>
-                 <li><a href="/account/logout" class="btn-danger">Logout</a></li>
+                 <li><a  href="/my/map">Map View</a></li>
+                 <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usefull links <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <li><a href="/my/mandi">Mandi prices and Details</a></li>
+                  </ul>
+                 </li>
+                 <li><a href="/account/logout" id="btn-danger">Logout</a></li>
              </ul>
          </div>
        </div>
@@ -53,10 +59,6 @@
             <input id="pName" name="pname" type="text" class="form-control" placeholder="Carrot" required/>
           </div>
           <div class="form-group">
-            <label for="pCostCode">Product price : <i class="fa fa-inr"></i></label>
-            <input id="costCode" name="pprice" type="number" class="form-control" placeholder="10000" required/>
-          </div>
-          <div class="form-group">
             <label for="pCostCode">Product Quantity:</label>
             <select name="pqmeasure">
               <option value="Tons">Tons</option>
@@ -64,6 +66,10 @@
               <option value="Quintal">quintal</option>
             </select>
             <input id="pCostCode" name="pquantity" type="number" class="form-control" placeholder="100" required/>
+          </div>
+          <div class="form-group">
+            <label for="pCostCode">Product price : <i class="fa fa-inr"></i></label>
+            <input id="costCode" name="pprice" type="number" class="form-control" placeholder="10000" required/>
           </div>
           <div class="form-group">
               <label for="pAddressZip">Product description:</label>
@@ -118,13 +124,14 @@
           </div>
           <div class="form-group">
             <label for="pAddress1">Search your area for Lat and Lon:</label>
-            <input id="autocomplete" name="googlemap" type="text" class="form-control" required/>
+            <input id="autocomplete" type="text" class="form-control" required/>
           </div>
           <div class="form-group">
             <label for="url">Imageurl:</label>
             <input id="pAddressZip" name="imageurl" type="url" class="form-control" placeholder="Place the imageurl for your product" required/>
           </div>
-          <p></p>
+          <input id="latcomplete" name="lat" type="text" class="form-control" required/>
+          <input id="lngcomplete" name="lng" type="text" class="form-control" required/>
         </div>
       </div>
     </fieldset>

@@ -9,7 +9,6 @@ var mongoose = require('mongoose');
 var path = require('path');
 var product = require('./models/product.js');
 var user = require('./models/user.js');
-var video = require('./models/video.js');
 var chat = require('./models/chat.js');
 var nodemailer = require('nodemailer');
 var socket = require('socket.io');
@@ -59,8 +58,12 @@ app.get('/my/sell',verify,function(req,res){
   res.sendFile(path.join(__dirname+'/public/sell/sell.html'));
 });
 
-app.get('/my/videos',verify,function(req,res){
-  res.sendFile(path.join(__dirname+'/public/video/video.html'));
+app.get('/my/map',verify,function(req,res){
+  res.sendFile(path.join(__dirname+'/public/map/map.html'));
+});
+
+app.get('/my/mandi',verify,function(req,res){
+  res.sendFile(path.join(__dirname+'/public/mandi/mandi.html'));
 });
 
 app.post('/sell/product',verify,function(req,res){
@@ -78,12 +81,12 @@ app.post('/sell/product',verify,function(req,res){
   newProduct.city = req.body.city;
   newProduct.state = req.body.state;
   newProduct.pincode = req.body.pincode;
-  newProduct.latlon = req.body.googlemap;
+  newProduct.lat = req.body.lat;
+  newProduct.lng = req.body.lng;
   newProduct.save(function(err,savedObject){
       if(savedObject)
       {
-        console.log(savedObject);
-        res.redirect('/my/products')
+        res.redirect('/my/dashboard/posts')
       }
       else {
         res.send(err);
@@ -191,53 +194,9 @@ app.get('/get/product/search/price/:cond/:pri',verify,function(req,res){
 });
 
 app.post('/my/products/detail/:id/delete',verify,function(req,res){
-  console.log(req.user.username,req.body.uname);
-  if(req.user.username === req.body.uname)
-  {
   product.findOneAndDelete({_id: req.params.id},function(deleteditem){
-    res.send("hello");
+    res.redirect('/my/dashboard/posts')
   });
-  }
-  else {
-    res.redirect('/my/products/detail/'+req.params.id+'/delete')
-  }
-});
-
-app.post('/post/videos',function(req,res){
-  var newVideo = new video();
-  newVideo.created_by = req.user.username;
-  newVideo.videonum = req.body.vid;
-  newVideo.save(function(err,savedObject){
-      if(savedObject)
-      {
-        res.send(savedObject);
-      }
-      else {
-        res.send(err);
-      }
-    });
-});
-
-app.get('/get/videos',verify,function(req,res){
-  video.find({},function(err, video){
-     res.send(video);
-    if(err)
-      res.send("product not found.");
-});
-});
-
-app.get('/video/dashboard',verify,function(req,res){
-  video.find({created_by: req.user.username},function(err, video){
-     res.send(video);
-    if(err)
-      res.send("video not found.");
-});
-});
-
-app.post('/my/video/:id/delete',verify,function(req,res){
-  video.findOneAndDelete({_id: req.params.id},function(deleteditem){
-    res.redirect('/my/dashboard/videos');
-});
 });
 
 app.get('/account/logout',verify,function(req,res){
@@ -264,7 +223,6 @@ io.on('connection', (socket) => {
 
 app.get('/get/chat',verify, function(req,res){
   chat.find({},function(err, obj){
-    console.log(obj);
     res.send(obj);
   });
 });

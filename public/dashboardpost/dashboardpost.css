@@ -1,4 +1,5 @@
 
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -77,17 +78,10 @@ ul.nav a:hover {
   color: #fff !important;
 }
 
-.navbar-default .navbar-toggle .icon-bar:hover{
-  background-color: white;
-}
-.navbar-nav>ul{
-  padding-top: 10px;
-  background-color: #722872;
-  margin: 0 auto;
-}
 .navbar-default .navbar-nav> li > a{
   padding: 10px 15px;
   border-radius: 5px;
+  background-color: #722872;
  }
 
 .navbar-nav>li{
@@ -106,3 +100,12 @@ ul.nav a:hover {
 }
 
 .navbar {  border: none!important; }
+
+.dropdown-menu>li>a:hover{
+  background-color: #722872;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+
+#btn-danger{
+  background-color: red;
+}

@@ -24,6 +24,7 @@ $.ajax({
         "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
         "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
         "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+        "<form action=/my/products/detail/"+data[i]._id+"/delete method='post'><button class='btn-danger'> Delete <i class='fa fa-trash'></i></button></form>"+
         "<hr>"+
         "</div>"+
         "</div>"
@@ -33,4 +34,10 @@ $.ajax({
   }
 }
 }
+});
+
+
+$(".dropdown-toggle").click(function(){
+  $(".dropdown-toggle").css("background", "#722872");
+  $(".dropdown-menu").css("background", "#722872");
 });

@@ -188,6 +188,8 @@ p1{
 
 #view{
   cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 0px;
 }
 
 #letspace{
@@ -228,7 +230,7 @@ p1{
     color: 	#534B52;
     font-size: 17px;
     letter-spacing: 1px;
-    text-transform: capitalize;
+    text-transform: collapse;
 }
 
 #message{

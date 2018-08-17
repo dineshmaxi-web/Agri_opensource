@@ -14,7 +14,8 @@ var productSchema = mongoose.Schema({
   street : String,
   city : String,
   pincode : Number,
-  latlon : String
+  lat : String,
+  lng : String
 });
 
 var product = mongoose.model('products' , productSchema);

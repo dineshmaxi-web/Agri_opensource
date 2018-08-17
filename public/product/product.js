@@ -2,17 +2,41 @@ String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
-$('#hideadvance').hide();
+$('#advanceprice').hide();
+$('#advancelocation').hide();
 
-$('#toggleadvance').click(function() {
- $('#hideadvance').toggle("slow");
- $('.wrap').hide();
+$('#showprice').click(function() {
+ $('#advanceprice').show("slow");
+ $('.wrap').hide("slow");
+ $('#showprice').hide("slow");
+ $('#showlocation').hide("slow");
+ $(".hidehae").hide("slow");
 });
 
-$('#hideadvancesearch').click(function() {
- $('#hideadvance').toggle("slow");
- $('.wrap').show();
+$('#showlocation').click(function() {
+ $('#advancelocation').show("slow");
+ $('.wrap').hide("slow");
+ $('#showlocation').hide("slow");
+ $('#showprice').hide("slow");
+ $(".hidehae").hide("slow");
 });
+
+$('#hidelocation').click(function() {
+ $('#advancelocation').hide("slow");
+ $('.wrap').show("slow");
+ $('#showprice').show("slow");
+ $('#showlocation').show("slow");
+ $(".hidehae").show("slow");
+});
+
+$('#hideprice').click(function() {
+ $('#advanceprice').hide("slow");
+ $('.wrap').show("slow");
+ $('#showprice').show();
+ $('#showlocation').show();
+ $(".hidehae").show("slow");
+});
+
 
 $.ajax({
    type : "get",
@@ -20,6 +44,12 @@ $.ajax({
    contentType : "application/json",
    dataType : 'json',
    success : function(data){
+     if(data.length==0)
+     {
+       $("#post").html("<div class='well text-center'>There is no products</div>");
+     }
+     else
+     {
      for(var i = 0 ; i < data.length ; i++)
      {
       $("#post").append(
@@ -35,6 +65,7 @@ $.ajax({
         "</div>"+
         "</div>"
         );
+}
 }
 }
 });
@@ -174,4 +205,9 @@ $.ajax({
         }
       }}
 });
+});
+
+$(".dropdown-toggle").click(function(){
+  $(".dropdown-toggle").css("background", "#722872");
+  $(".dropdown-menu").css("background", "#722872");
 });
