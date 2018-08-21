@@ -94,7 +94,8 @@ img {
   color: #ff9f1a; }
 
 .product-title, .rating, .product-description, .price, .vote, .sizes {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+ }
 
 .product-title {
   margin-top: 0; }
@@ -230,7 +231,6 @@ p1{
     color: 	#534B52;
     font-size: 17px;
     letter-spacing: 1px;
-    text-transform: collapse;
 }
 
 #message{
