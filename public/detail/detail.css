@@ -262,3 +262,12 @@ p1{
 span{
   float: right;
 }
+
+#myNumber{
+  text-align: center;
+  width: 100px;
+}
+
+#inc,#dec{
+  width: 50px;
+}

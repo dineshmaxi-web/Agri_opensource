@@ -110,19 +110,20 @@ app.get('/get/product',verify,function(req,res){
 });
 
 app.post('/mail/send',function(req,res){
+
   transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'dineshsmart101.dm@gmail.com',
-      pass: 'australian111'
+      user: 'dineshozian@gmail.com',
+      pass: 'ozian111'
     }
   });
 
   mailOption = {
-    from: 'Website support <dineshsmart101@gmail.com>',
+    from: 'Website support <dineshozian@gmail.com>',
     to: req.body.posteremail,
     subject: req.body.subject,
-    html: '<p>Hello, <b>'+ req.body.postername+'</b>. How are you?. <b>'+req.user.username+'</b> would like to buy your <b>'+req.body.product+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.user.username+' to '+req.user.phonenumber+'</li></ul>'
+    html: '<p>Hello, <b>'+ req.body.postername+'</b>. How are you?. <b>'+req.user.username+'</b> would like to buy your <b>'+req.body.howmuch+' '+req.body.pqmeasure+' '+req.body.product+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.user.username+' to '+req.user.phonenumber+'</li></ul>'
   };
  transporter.sendMail(mailOption,function(info, err){
    if(info){
@@ -133,16 +134,16 @@ app.post('/mail/send',function(req,res){
  transporter = nodemailer.createTransport({
    service: 'Gmail',
    auth: {
-     user: 'dineshsmart101.dm@gmail.com',
-     pass: 'australian111'
+     user: 'dineshozian@gmail.com',
+     pass: 'ozian111'
    }
  });
 
  mailOption = {
-   from: 'Website support <dineshsmart101@gmail.com>',
+   from: 'Website support <dineshozian@gmail.com>',
    to: req.body.clickeremail,
    subject: req.body.subject,
-   html: '<p>Hello, <b>'+ req.user.username+'</b>. How are you?. I hope you are interested in buying the <b>'+req.body.product+'</b> from <b>'+req.body.postername+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.body.postername+' to '+req.body.mobileno+'</li></ul>'
+   html: '<p>Hello, <b>'+ req.user.username+'</b>. How are you?. I hope you are interested in buying the <b>'+req.body.howmuch+' '+req.body.pqmeasure+' '+req.body.product+'</b> from <b>'+req.body.postername+'</b>. Please, have a smooth relationship with him/her.</p>'+'<ul>'+'<li>Contact '+req.body.postername+' to '+req.body.mobileno+'</li></ul>'
  };
 transporter.sendMail(mailOption,function(info, err){
   if(info){
