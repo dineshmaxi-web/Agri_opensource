@@ -23,7 +23,7 @@ html
               br
               .preview-pic.tab-content
                 .tab-pane.active#pic-1
-                  img(src=prod[0].pimage)
+                    img(src=prod[0].pimage)
             .details.col-md-6
               br
               h3.product-title #{prod[0].pname}
@@ -69,6 +69,7 @@ html
     user = !{JSON.stringify(username)}
     creator = !{JSON.stringify(prod[0].created_by)}
     pname = !{JSON.stringify(prod[0].pname)}
+    pquantity = !{JSON.stringify(prod[0].pquantity)}
     pqmeasure = !{JSON.stringify(prod[0].pqmeasure)}
     id = !{JSON.stringify(prod[0]._id)}
 
@@ -95,8 +96,10 @@ html
         pqmeasure: pqmeasure,
         posteremail : pemail,
         clickeremail : email,
+        pquantity : pquantity,
         subject : "Message from farm friend",
         mobileno : mobilenum,
+        productid : id
       }),
       contentType : "application/json",
       success : function(data){
@@ -105,20 +108,6 @@ html
        })
       })
 
-      $('.delete').click(function(){
-       $.ajax({
-        type : "post",
-        url : '/my/products/detail/'+id+'/delete',
-        data : JSON.stringify({
-           uname : creator
-        }),
-        contentType : "application/json",
-        success : function(){
-             window.location.href='/my/products';
-         }
-         })
-        })
-
         $('#gm').hide();
         $('#view').click(function() {
          $('#gm').toggle("slow",function(){$('html, body').animate({
@@ -126,9 +115,6 @@ html
          }, 2000);});
         });
 
-        $('#chat-window').each(function () {
-            $(this).scrollTop($(this)[0].scrollHeight);
-        });
 
         $.ajax({
            type : "get",

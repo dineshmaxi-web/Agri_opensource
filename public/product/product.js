@@ -52,19 +52,37 @@ $.ajax({
      {
      for(var i = 0 ; i < data.length ; i++)
      {
-      $("#post").append(
-        "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
-        "<div class='card'>"+
-        "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
-        "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
-        "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
-        "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-        "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-        "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
-        "<hr>"+
-        "</div>"+
-        "</div>"
-        );
+      if(data[i].pquantity > 0)
+      {
+        $("#post").append(
+          "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+          "<div class='card'>"+
+          "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
+          "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+          "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+          "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+          "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+          "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+          "<hr>"+
+          "</div>"+
+          "</div>"
+          );
+        }
+        else{
+          $("#post").append(
+            "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+            "<div class='card'>"+
+            "<img src='https://hedenkamppta.files.wordpress.com/2016/06/sold-out.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+            "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+            "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+            "<p class='list'>Quantity : No item available</p>"+
+            "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+            "<a  id='newpage'><button style='background-color : grey' id='more-details' disabled>Sold out</button></p>"+
+            "<hr>"+
+            "</div>"+
+            "</div>"
+            );
+        }
 }
 }
 }
@@ -86,19 +104,37 @@ $.ajax({
         $("#post").empty();
         for(var i = 0 ; i < data.length ; i++)
         {
-         $("#post").append(
-           "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
-           "<div class='card'>"+
-           "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
-           "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
-           "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
-           "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-           "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-           "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
-           "<hr>"+
-           "</div>"+
-           "</div>"
-            );
+          if(data[i].pquantity > 0)
+          {
+            $("#post").append(
+              "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+              "<div class='card'>"+
+              "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
+              "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+              "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+              "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+              "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+              "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+              "<hr>"+
+              "</div>"+
+              "</div>"
+              );
+            }
+            else{
+              $("#post").append(
+                "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+                "<div class='card'>"+
+                "<img src='https://hedenkamppta.files.wordpress.com/2016/06/sold-out.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+                "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+                "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+                "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+                "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+                "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+                "<hr>"+
+                "</div>"+
+                "</div>"
+                );
+            }
         }}}
 });
 });
@@ -120,19 +156,37 @@ $.ajax({
         $("#post").empty();
         for(var i = 0 ; i < data.length ; i++)
         {
-         $("#post").append(
-           "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
-           "<div class='card'>"+
-           "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
-           "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
-           "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
-           "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-           "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-           "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
-           "<hr>"+
-           "</div>"+
-           "</div>"
-            );
+          if(data[i].pquantity > 0)
+          {
+            $("#post").append(
+              "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+              "<div class='card'>"+
+              "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
+              "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+              "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+              "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+              "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+              "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+              "<hr>"+
+              "</div>"+
+              "</div>"
+              );
+            }
+            else{
+              $("#post").append(
+                "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+                "<div class='card'>"+
+                "<img src='https://hedenkamppta.files.wordpress.com/2016/06/sold-out.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+                "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+                "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+                "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+                "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+                "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+                "<hr>"+
+                "</div>"+
+                "</div>"
+                );
+            }
         }}}
 });
 });
@@ -154,19 +208,37 @@ $.ajax({
         $("#post").empty();
         for(var i = 0 ; i < data.length ; i++)
         {
-         $("#post").append(
-           "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
-           "<div class='card'>"+
-           "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
-           "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
-           "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
-           "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-           "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-           "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
-           "<hr>"+
-           "</div>"+
-           "</div>"
-            );
+          if(data[i].pquantity > 0)
+          {
+            $("#post").append(
+              "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+              "<div class='card'>"+
+              "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
+              "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+              "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+              "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+              "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+              "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+              "<hr>"+
+              "</div>"+
+              "</div>"
+              );
+            }
+            else{
+              $("#post").append(
+                "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+                "<div class='card'>"+
+                "<img src='https://hedenkamppta.files.wordpress.com/2016/06/sold-out.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+                "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+                "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+                "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+                "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+                "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+                "<hr>"+
+                "</div>"+
+                "</div>"
+                );
+            }
         }
       }}
 });
@@ -189,19 +261,37 @@ $.ajax({
         $("#post").empty();
         for(var i = 0 ; i < data.length ; i++)
         {
-         $("#post").append(
-           "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
-           "<div class='card'>"+
-           "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
-           "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
-           "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
-           "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
-           "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
-           "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
-           "<hr>"+
-           "</div>"+
-           "</div>"
-            );
+          if(data[i].pquantity > 0)
+          {
+            $("#post").append(
+              "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+              "<div class='card'>"+
+              "<img src="+data[i].pimage+" class='img-responsive' style='width:100%;height:200px;'>"+
+              "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+              "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+              "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+              "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+              "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+              "<hr>"+
+              "</div>"+
+              "</div>"
+              );
+            }
+            else{
+              $("#post").append(
+                "<div class='col-xs-6 col-lg-3 col-md-4 col-sm-6'"+
+                "<div class='card'>"+
+                "<img src='https://hedenkamppta.files.wordpress.com/2016/06/sold-out.jpg' class='img-responsive' style='width:100%;height:200px;'>"+
+                "<h1 class='item'>"+data[i].pname.capitalize()+"</h1>"+
+                "<p class='list'>Price : <i class='fa fa-inr' aria-hidden='true'></i>"+data[i].pprice+"</p>"+
+                "<p class='list'>Quantity : "+data[i].pquantity+" "+data[i].pqmeasure+"</p>"+
+                "<p class='list'>Place : "+data[i].city.capitalize()+"</p>"+
+                "<a href=/my/products/detail/"+data[i]._id+" id='newpage'><button id='more-details'>Get details</button></p>"+
+                "<hr>"+
+                "</div>"+
+                "</div>"
+                );
+            }
         }
       }}
 });

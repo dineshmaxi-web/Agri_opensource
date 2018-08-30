@@ -10,6 +10,7 @@ var path = require('path');
 var product = require('./models/product.js');
 var user = require('./models/user.js');
 var chat = require('./models/chat.js');
+var mailstore = require('./models/mailstore.js');
 var nodemailer = require('nodemailer');
 var socket = require('socket.io');
 var app = express();
@@ -109,7 +110,58 @@ app.get('/get/product',verify,function(req,res){
       });
 });
 
+app.post('/yesupdate/:id/:updatedquantity/mail/',verify,function(req,res){
+
+  product.findOneAndUpdate({_id: req.params.id},{$set:{pquantity:req.params.updatedquantity}},{"returnNewDocument": true},function(err,updated){
+
+  });
+
+  mailstore.findOneAndDelete({productid: req.params.id},function(err, deleteditem){
+    res.redirect('/my/dashboard/posts')
+  });
+});
+
+app.post('/noupdate/:id/:updatedquantity/mail/',verify,function(req,res){
+  mailstore.findOneAndDelete({productid: req.params.id},function(err, deleteditem){
+    res.redirect('/my/dashboard/posts');
+  });
+});
+
+app.get('/get/mail',verify,function(req,res){
+  console.log(req.user.username);
+  if(req.user.username)
+    {
+     mailstore.find({productowner: req.user.username},function(err, mailstore){
+       res.send(mailstore);
+      if(err)
+        res.send("Nothing found.");
+      });
+    }
+  else{
+    res.send("You are not authenticated");
+  }
+});
+
 app.post('/mail/send',function(req,res){
+  var newMailStore = new mailstore();
+  newMailStore.productowner = req.body.postername;
+  newMailStore.productname = req.body.product.toLowerCase();
+  newMailStore.productid = req.body.productid;
+  newMailStore.howmuch = req.body.howmuch;
+  newMailStore.pquantity = req.body.pquantity;
+  newMailStore.pqmeasure = req.body.pqmeasure;
+  newMailStore.mobilenumber = req.body.mobileno;
+  newMailStore.clickername = req.user.username;
+
+  newMailStore.save(function(err,savedObject){
+      if(savedObject)
+      {
+        console.log(savedObject);
+      }
+      else {
+        res.send(err);
+      }
+    });
 
   transporter = nodemailer.createTransport({
     service: 'Gmail',
