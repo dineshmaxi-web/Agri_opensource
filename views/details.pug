@@ -1,0 +1,169 @@
+html
+  head
+    title Agri Product Detail
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    link(rel="stylesheet", href="/detail/detail.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:400,700")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js")
+
+  body
+    .container
+      .card
+        .container-fluid
+          .wrapper.row
+            .preview.col-md-6
+              a#letspace(href='/my/products')
+                i.fa.fa-arrow-left Back
+              br
+              .preview-pic.tab-content
+                .tab-pane.active#pic-1
+                    img(src=prod[0].pimage)
+            .details.col-md-6
+              br
+              h3.product-title #{prod[0].pname}
+              b.create Posted by :
+                p1  #{prod[0].created_by}
+              b.create Before :
+                p1  #{moment(prod[0].created_at).fromNow()}
+              h4.product-description #{prod[0].pdescription}
+              h4.price Current price :
+                  i.fa.fa-inr
+                    span #{prod[0].pprice}
+              h4.price Quantity :
+                  i.fa.fa-at
+                    span #{prod[0].pquantity} #{prod[0].pqmeasure}
+              h4.price City :
+                  i.fa.fa-building
+                    span #{prod[0].city}&nbsp;
+                      a#view View on google map
+              div#hidequantity
+                center
+                    h4 How much you want :
+                    div
+                      button#inc(onclick='increment()') +
+                      input#myNumber(type='number',min='1', value='1')
+                      button#dec(onclick='decrement()') -
+              br
+              button.action.add-to-cart.btn.btn-default.getcontact Send details via mail
+              br
+          center
+            iframe#gm(width="100%" height="50%",frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBzgEPx6cqn4xlfAivUYHuCxbefWWIlFs4&q='+prod[0].lat+','+prod[0].lng)
+          #mario-chat
+            .well-lg Comment Section
+            #chat-window
+                #output
+            button#send
+              i.fa.fa-paper-plane
+            input(type="text", placeholder="Message", id="message")
+
+  script(type='text/javascript').
+    mobilenum = !{JSON.stringify(prod[0].pnumber)}
+    pemail = !{JSON.stringify(prod[0].posteremail)}
+    email = !{JSON.stringify(traderemail)}
+    user = !{JSON.stringify(username)}
+    creator = !{JSON.stringify(prod[0].created_by)}
+    pname = !{JSON.stringify(prod[0].pname)}
+    pquantity = !{JSON.stringify(prod[0].pquantity)}
+    pqmeasure = !{JSON.stringify(prod[0].pqmeasure)}
+    id = !{JSON.stringify(prod[0]._id)}
+
+    if(user === creator){
+       $(".getcontact").hide();
+       $("#hidequantity").hide();
+    }
+
+    function increment() {
+    document.getElementById("myNumber").stepUp(1);
+    }
+    function decrement() {
+        document.getElementById("myNumber").stepDown(1);
+        }
+
+    $('.getcontact').click(function(){
+     $.ajax({
+      type : "post",
+      url : '/mail/send',
+      data : JSON.stringify({
+        postername : creator,
+        product : pname,
+        howmuch:  $('#myNumber').val(),
+        pqmeasure: pqmeasure,
+        posteremail : pemail,
+        clickeremail : email,
+        pquantity : pquantity,
+        subject : "Message from farm friend",
+        mobileno : mobilenum,
+        productid : id
+      }),
+      contentType : "application/json",
+      success : function(data){
+          alert('message sent.');
+       }
+       })
+      })
+
+        $('#gm').hide();
+        $('#view').click(function() {
+         $('#gm').toggle("slow",function(){$('html, body').animate({
+             scrollTop: $("#gm").offset().top
+         }, 2000);});
+        });
+
+
+        $.ajax({
+           type : "get",
+           url : '/get/chat',
+           dataType : "json",
+           contentType : "application/json",
+           success : function(data){
+             for(var i = 0 ; i < data.length ; i++)
+             {
+             if(data[i].prodid == id)
+             {
+                $("#output").append("<p><b>"+data[i].created_by+":</b>  <i>"+data[i].message+"</i><span>"+ctime(data[i].created_at)+"</span></p>");
+             }
+             }
+        }
+        })
+
+        function ctime(time){
+          var date = moment.utc(time).format('YYYY-MM-DD HH:mm:ss');
+          var stillUtc = moment.utc(date).toDate();
+          var local = moment(stillUtc).local().format('HH:mm:ss DD/MM/YYYY');
+          return local;
+        }
+
+        var socket = io.connect('http://localhost:4000');
+
+        var message = document.getElementById('message'),
+        btn = document.getElementById('send'),
+        output = document.getElementById('output');
+
+      btn.addEventListener('click', function(){
+      if($("#message").val() == "")
+      {
+
+      }
+      else{
+        socket.emit('chat', {
+            message: message.value,
+            user: user,
+            productid: id
+        });
+        message.value = "";
+      }
+      });
+
+      socket.on('chat', function(data){
+       if(data.productid == id)
+       {
+          $("#output").append("<p><b>"+data.user+":</b>  <i>"+data.message+"</i> <span>"+ctime(data.created_at)+"</span></p>");
+
+       }
+      });

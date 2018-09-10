@@ -1,0 +1,187 @@
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.item{
+  color: black;
+  font-size: 24px;
+  font-family: 'sans-serif';
+}
+
+.list {
+  color: grey;
+  font-size: 18px;
+  font-family: 'serif';
+}
+
+#more-details{
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+#newpage{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+#more-details:hover, #newpage:hover {
+  opacity: 0.7;
+}
+
+.navbar-default .navbar-brand{
+  font-family: impact;
+  font-size: 32px;
+  color: white;
+  margin-top:14px;
+  border-color: #722872;
+}
+.navbar-default .navbar-brand:hover{
+  color: white;
+}
+.navbar-default{
+  background-color: #722872;
+  height: 80px;
+  box-shadow: 0px 2px 5px 0px #666;
+}
+.navbar-default .navbar-toggle{
+  margin-top: 15px;
+}
+.navbar-default .navbar-toggle:hover{
+  background-color: black;
+}
+.navbar-nav>li:hover{
+  background-color: #722872;
+  color:white;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+
+ul.nav a{
+  color: #fff !important;
+}
+
+ul.nav a:hover {
+  color: #fff !important;
+}
+
+.navbar-default .navbar-nav> li > a{
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #722872;
+ }
+
+.navbar-nav>li{
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  margin-top: 19px;
+  border-radius: 5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #722872;
+}
+
+.navbar {  border: none!important; }
+
+.dropdown-menu>li>a:hover{
+  background-color: #722872;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+
+#btn-danger{
+  background-color: red;
+}
+
+.no{
+  background-color: red;
+  border: none;
+}
+
+.yes{
+  background-color: green;
+  border: none;
+}
+
+.moredet{
+  background-color: red;
+  border: none;
+  width: 100%;
+  height:40px;
+}
+
+.yes,.no{
+  width: 80px;
+}
+
+.satisfaction,.postspage
+{
+    width: 150px;
+}
+
+span.notif {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url('http://i.imgur.com/evpC48G.png');
+  background-size: contain;
+  text-decoration: none;
+}
+
+span.prod {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: url('http://i.imgur.com/evpC48G.png');
+  background-size: contain;
+  text-decoration: none;
+}
+
+.num {
+  position: absolute;
+  right: 11px;
+  top: 6px;
+  color: #fff;
+}
+
+div .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+div .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+div .tooltip:hover .tooltiptext {
+    visibility: visible;
+}

@@ -1,0 +1,132 @@
+/** Navigation details */
+
+@import url(https://fonts.googleapis.com/css?family=Cherry+Swash);
+
+
+.navbar-default .navbar-brand{
+  font-family: impact;
+  font-size: 32px;
+  color: white;
+  margin-top:14px;
+  border-color: #722872;
+}
+.navbar-default .navbar-brand:hover{
+  color: white;
+}
+.navbar-default{
+  background-color: #722872;
+  height: 80px;
+  box-shadow: 0px 2px 5px 0px #666;
+}
+.navbar-default .navbar-toggle{
+  margin-top: 15px;
+}
+.navbar-default .navbar-toggle:hover{
+  background-color: black;
+}
+.navbar-nav>li:hover{
+  background-color: #722872;
+  color:white;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+ul.nav a{
+  color: #fff !important;
+}
+ul.nav a:hover {
+  color: #fff !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar:hover{
+  background-color: white;
+}
+.navbar-nav>ul{
+  padding-top: 10px;
+  background-color: #722872;
+  margin: 0 auto;
+}
+.navbar-default .navbar-nav> li > a{
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #722872;
+ }
+
+.navbar-nav>li{
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  margin-top: 19px;
+  border-radius: 5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #722872;
+}
+
+.navbar {  border: none!important; }
+
+.dropdown-menu>li>a:hover{
+  background-color: #722872;
+  box-shadow: rgba(255,255,255,0.15) 0 0 5px;
+}
+
+#btn-danger{
+  background-color: red;
+}
+
+
+html, body {
+  box-sizing: border-box;
+  min-width: 320px;
+  background: #343436;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+#wrapper {
+  background: white;
+  margin: 0 auto;
+  max-width: 750px;
+  box-shadow: 0 0 30px 1px #00946f;
+}
+#logo {
+  padding: 10px;
+  background: #2C3033;
+  height: 66px;
+  box-shadow: inset 0 -20px 20px -20px rgba(255,255,255,0.8);
+}
+#logo > img {
+  position: relative;
+  top: -5px;
+  width: 100%;
+  max-width: 350px;
+}
+fieldset {
+  padding: 10px;
+}
+.section-container {
+  display: flex;
+  flex-direction: row;
+}
+.section-container > div {
+  flex: 1;
+  padding:0 10px 10px 10px;
+}
+
+
+@media (max-width: 600px) {
+  .section-container {
+    flex-direction: column;
+  }
+}
+
+.submit{
+  font-family: 'Cherry Swash';
+}
+
+.img-logo{
+  height: 10vh;
+}

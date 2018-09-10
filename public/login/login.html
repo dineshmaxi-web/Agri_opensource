@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Farm Friend - login/signup</title>
+  <link rel="icon" type="image/png" href="/img/farmer.png"/>
+  <link rel="stylesheet" href="/login/login.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="form">
+    <!-- login and signup form  -->
+    <ul class="tabs">
+      <li id="tab1" class="tab"><a href="#login" class="activate" class="login">Log In</a></li>
+      <li id="tab2" class="tab"><a href="#signup" class="login">Register</a></li>
+    </ul>
+    <!-- .tabs (login and signup) -->
+    <div id="tab_content">
+      <div id="login" class="">
+        <form action="/user/login" method="post">
+          <h1 class="text-center">Login!</h1>
+          <div class="wrap-field">
+            <label for="uname" class="unamestyle">Username<span class="req">*</span></label>
+            <input type="text" name="username" id="f_name" required />
+          </div>
+          <div class="wrap-field">
+            <label for="pass" class="unamestyle">Password<span class="req">*</span></label>
+            <input type="password" name="password" id="password" required />
+          </div>
+          <button type="submit" name="login">LOG IN</button>
+        </form>
+      </div>
+      <!-- #login  -->
+      <div id="signup" class="">
+        <form action="/user/register" method="post">
+          <h1 class="text-center">Register!</h1>
+          <p id="errmsg"></p>
+          <div class="wrap-field">
+            <label for="uname" class="unamestyle">Username<span class="req">*</span></label>
+            <input type="text" name="username" id="f_name" required />
+          </div>
+          <div class="wrap-field">
+            <label for="uname" class="unamestyle">Email<span class="req">*</span></label>
+            <input type="email" name="email" id="email" required/>
+          </div>
+          <div class="wrap-field">
+            <label for="pnum" class="unamestyle">Phone number<span class="req">*</span></label>
+            <input type="number" name="phonenum" id="f_name" required />
+          </div>
+          <div class="wrap-field">
+            <label for="pass" class="unamestyle">Password<span class="req">*</span></label>
+            <input type="password" name="password" id="password" required />
+          </div>
+          <button type="submit" name="login">Register</button>
+        </form>
+      </div>
+      <!-- #signup  -->
+    </div>
+    <!-- #tab_content	 -->
+  </div>
+  <!-- #form  -->
+
+  <!-- Script  -->
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="/login/login.js"></script>
+  <!-- /Script  -->
+</body>
+
+</html>

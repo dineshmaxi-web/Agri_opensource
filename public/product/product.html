@@ -1,0 +1,119 @@
+     <html>
+       <head>
+         <title>Farm Friend - Products</title>
+         <link rel="icon" type="image/png" href="/img/farmer.png"/>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+          <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+          <link rel="stylesheet" href="/product/product.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       </head>
+       <body>
+         <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+           <div class="inner-navbar">
+            <div class="container">
+              <div class="navbar-header">
+              <a href="/my/dashboard/posts" class="navbar-brand">Farm-Friend</a>
+               <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" >
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+              </button>
+              </div>
+              <div id="navbarCollapse" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right justified">
+                      <li ><a href="/my/dashboard/posts">Dashboard</a></li>
+                      <li><a  href="/my/sell">Sell</a></li>
+                      <li><a  href="/my/products">Products</a></li>
+                      <li><a  href="/my/map">Map View</a></li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usefull links <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/my/mandi">Mandi prices and Details</a></li>
+                       </ul>
+                      </li>
+                      <li><a href="/account/logout" id="btn-danger">Logout</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+         </nav>
+         <br><br><br><br><br><br>
+     <div class="container">
+        <center>
+         <div id="advanceprice">
+         <p id="hideprice">Back to normal search</p>
+         <select type="text" id="searchcondition" class="search-multiple search-condition">
+               <option value="" disabled selected>Select condition</option>
+               <option value="Lessthan">Lessthan</option>
+               <option value="Greaterthan">Greaterthan</option>
+              </select>
+          <select type="text" class="search-multiple search-price">
+           <option value="" disabled selected>Search by price</option>
+           <option value="5000">5000</option>
+           <option value="10000">10000</option>
+           <option value="20000">20000</option>
+           <option value="50000">50000</option>
+          </select>
+        </div>
+        <div id="advancelocation">
+          <p id="hidelocation">Back to normal search</p>
+          <select type="text" class="search-multiple search-location">
+           <option value="" disabled selected>Search by location</option>
+           <option value="Kanchipuram">Kanchipuram</option>
+           <option value="Tiruvallur">Tiruvallur</option>
+           <option value="Cuddalore">Cuddalore</option>
+           <option value="Villupuram">Villupuram</option>
+           <option value="Vellore">Vellore</option>
+           <option value="Tiruvannamalai">Tiruvannamalai</option>
+           <option value="Salem">Salem</option>
+           <option value="Namakkal">Namakkal</option>
+           <option value="Dharmapuri">Dharmapuri</option>
+           <option value="Erode">Erode</option>
+           <option value="Coimbatore">Coimbatore</option>
+           <option value="Tiruvarur">Tiruvarur</option>
+           <option value="Nilgris">Nilgris</option>
+           <option value="Thanjavur">Thanjavur</option>
+           <option value="Nagapattinam">Nagapattinam</option>
+           <option value="Tiruchirappalli">Tiruchirappalli</option>
+           <option value="Karur">Karur</option>
+           <option value="Perambalur">Perambalur</option>
+           <option value="Pudukkottai">Pudukkottai</option>
+           <option value="Madurai">Madurai</option>
+           <option value="Theni">Theni</option>
+           <option value="Dindigul">Dindigul</option>
+           <option value="Ramanathapuram">Ramanathapuram</option>
+           <option value="Virudhunagar">Virudhunagar</option>
+           <option value="Sivagangai">Sivagangai</option>
+           <option value="Tirunelveli">Tirunelveli</option>
+           <option value="Thoothukkudi">Thoothukkudi</option>
+           <option value="Krishnagiri">Krishnagiri</option>
+           <option value="Kanniyakumari">Kanniyakumari</option>
+           <option value="Ariyalur">Ariyalur</option>
+           <option value="Tiruppur">Tiruppur</option>
+           <option value="Chennai">Chennai</option>
+          </select>
+        </div>
+        <br>
+        <div class="wrap">
+               <div class="search">
+                   <input type="text" class="search-term" placeholder="What are you looking for?">
+                   <button type="submit" name="button" class="search-button namesearch">Search</button>
+               </div>
+        </div>
+        <div>
+        <span id="showprice">Search by price</span>
+        <span class="hidehae"> | </span>
+        <span id="showlocation">Search by location</span>
+        </center>
+             <br>
+             <div class="row">
+                <div id="post"></div>
+           </div>
+         </div>
+       </body>
+     <script src="/product/product.js"></script>
+     </html>

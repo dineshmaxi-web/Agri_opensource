@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Farm-Friend - Mandi</title>
+    <link rel="icon" type="image/png" href="/img/farmer.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="/mandi/mandi.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>
+     <meta charset="utf-8">
+  </head>
+  <body>
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+      <div class="inner-navbar">
+       <div class="container">
+         <div class="navbar-header">
+         <a href="/my/dashboard/posts" class="navbar-brand">Farm-Friend</a>
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" >
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+         </button>
+         </div>
+         <div id="navbarCollapse" class="collapse navbar-collapse">
+             <ul class="nav navbar-nav navbar-right justified">
+                 <li ><a href="/my/dashboard/posts">Dashboard</a></li>
+                 <li><a  href="/my/sell">Sell</a></li>
+                 <li><a  href="/my/products">Products</a></li>
+                 <li><a  href="/my/map">Map View</a></li>
+                 <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usefull links <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                     <li><a href="/my/mandi">Mandi prices and Details</a></li>
+                  </ul>
+                 </li>
+                 <li><a href="/account/logout" id="btn-danger">Logout</a></li>
+             </ul>
+         </div>
+       </div>
+     </div>
+    </nav>
+<br><br><br><br><br><br>
+     <div class="container contain">
+       <div style="width:100%">
+          <center>
+         <table class="paginated" id="myTable">
+           <thead>
+           </thead>
+           <tbody>
+          </tbody>
+         </table>
+       </center>
+         </div>
+        </div>
+        </center>
+      </div>
+  </body>
+</html>
+
+<script src="/mandi/mandi.js"></script>
