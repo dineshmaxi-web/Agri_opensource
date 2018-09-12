@@ -8,7 +8,7 @@ $(document).ready(function(){
      url : 'https://data.gov.in/node/86943/datastore/export/json',
      Accept : 'application/json',
      success : function(data){
-       for (var i = 0 ; ; i++) {
+       for (var i = 0 ; i < data.length; i++) {
              html += '<tr><td>' + data[i].state  + '</td> <td>' + data[i].district  + '</td> <td>' + data[i].market  + '</td> <td>' + data[i].commodity  + '</td> <td>' + data[i].variety  + '</td> <td>' + data[i].arrival_date  + '</td> <td>'
               + data[i].min_price  + '</td> <td>' + data[i].max_price  + '</td> <td>' + data[i].modal_price  + '</td></tr>';
          }
